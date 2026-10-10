@@ -1,0 +1,169 @@
+---
+const pageTitle = 'Reasignaciones';
+---
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{pageTitle} — Manual SIU DIAGUITA</title>
+  <link rel="stylesheet" href="/CSS/styles.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/glightbox/dist/css/glightbox.min.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📋</text></svg>">
+</head>
+<body>
+
+<div id="progress-bar"></div>
+<div class="sidebar-overlay"></div>
+
+<div class="layout">
+
+  <aside class="sidebar">
+    <div class="sidebar-brand">
+      <div class="brand-icon">📋</div>
+      <h2>SIU Diaguita</h2>
+      <p>Manual de Usuario — Gestión de Patrimonio</p>
+    </div>
+
+    <nav class="sidebar-nav">
+      <div class="sidebar-nav-label">Navegación</div>
+
+      <a href="/"><span class="nav-icon">🏠</span> Inicio</a>
+      <a href="/altas"><span class="nav-icon">➕</span> Altas</a>
+      <a href="/transferencias"><span class="nav-icon">🔄</span> Transferencias</a>
+      <a href="/bajas"><span class="nav-icon">➖</span> Bajas</a>
+      <a href="/reasignaciones" class="active"><span class="nav-icon">👤</span> Reasignaciones</a>
+
+      <div class="sidebar-sub">
+        <a href="#paso-1">Búsqueda y Filtrado</a>
+        <a href="#paso-2">Selección del Bien</a>
+        <a href="#paso-3">Formulario y Confirmación</a>
+        <a href="#paso-4">Proceso Completado</a>
+      </div>
+    </nav>
+
+    <div class="sidebar-footer">Manual Oficial · SIU DIAGUITA</div>
+  </aside>
+
+  <div class="main-content">
+
+    <header class="topbar">
+      <div class="topbar-left">
+        <button class="hamburger" id="hamburgerBtn" aria-label="Menú">☰</button>
+        <div class="breadcrumb">Manual SIU DIAGUITA <span>/ Reasignaciones</span></div>
+      </div>
+      <div class="topbar-right">
+        <button id="darkModeBtn">🌙 Modo oscuro</button>
+      </div>
+    </header>
+
+    <main class="content-area">
+
+      <h1>Reasignaciones — Cambio de Responsable</h1>
+      <p class="page-subtitle">Actualización del responsable de uso de bienes dentro del mismo área.</p>
+
+      <div class="intro-box">
+        <strong>Objetivo:</strong> Actualizar la persona Responsable de uso de uno o varios bienes patrimoniales, dejando constancia del movimiento interno.
+      </div>
+
+      <div class="important">
+        <strong>⚠ REGLA FUNDAMENTAL:</strong> El Área responsable y la Ubicación física permanecen <strong>sin cambios</strong>. Este procedimiento se utiliza <strong>SOLO</strong> para cambiar a la persona que utiliza el bien. Si cambia el área, corresponde usar <a href="/transferencias">Transferencias</a>.
+      </div>
+
+      <h2>Procedimiento de Reasignación</h2>
+
+      <div class="stepper" aria-label="Progreso del procedimiento">
+        <div class="stepper-item active">
+          <div class="stepper-num">1</div>
+          <span class="stepper-label">Buscar Bien</span>
+        </div>
+        <div class="stepper-item">
+          <div class="stepper-num">2</div>
+          <span class="stepper-label">Seleccionar</span>
+        </div>
+        <div class="stepper-item">
+          <div class="stepper-num">3</div>
+          <span class="stepper-label">Nuevo Resp.</span>
+        </div>
+        <div class="stepper-item">
+          <div class="stepper-num">4</div>
+          <span class="stepper-label">Confirmado</span>
+        </div>
+      </div>
+
+      <div class="step-card" id="paso-1">
+        <div class="step-header">
+          <div class="step-number">1</div>
+          <h4>Búsqueda y Filtrado del Bien</h4>
+        </div>
+        <p>Localizá el bien específico dentro del inventario filtrando por Número Patrimonial (NUI), Descripción o Responsable de uso actual.</p>
+        <div class="img-wrap">
+          <a href="/Imagenes/60.ficha_solicitud_reasignacion_1.0.png" class="glightbox" data-title="Filtros de búsqueda de bienes patrimoniales" data-gallery="reasignaciones">
+            <img src="/Imagenes/60.ficha_solicitud_reasignacion_1.0.png" alt="Filtros de bienes patrimoniales">
+          </a>
+          <span class="img-zoom-hint">🔍 Clic para ampliar</span>
+        </div>
+      </div>
+
+      <div class="step-card" id="paso-2">
+        <div class="step-header">
+          <div class="step-number">2</div>
+          <h4>Selección del Bien</h4>
+        </div>
+        <p>Marcá la casilla de verificación del bien deseado y presioná el botón <strong>"Reasignar Responsable de uso"</strong>.</p>
+        <div class="img-wrap">
+          <a href="/Imagenes/60.ficha_solicitud_reasignacion_1.2.png" class="glightbox" data-title="Botón Reasignar Responsable de uso" data-gallery="reasignaciones">
+            <img src="/Imagenes/60.ficha_solicitud_reasignacion_1.2.png" alt="Botón Reasignar Responsable de uso">
+          </a>
+          <span class="img-zoom-hint">🔍 Clic para ampliar</span>
+        </div>
+      </div>
+
+      <div class="step-card" id="paso-3">
+        <div class="step-header">
+          <div class="step-number">3</div>
+          <h4>Formulario y Confirmación</h4>
+        </div>
+        <p>Definí el <strong>Nuevo Responsable de uso</strong> y agregá observaciones si es necesario (por ejemplo: <em>"reasignación interna por cambio de puesto"</em>).</p>
+        <div class="img-wrap">
+          <a href="/Imagenes/60.ficha_solicitud_reasignacion_1.3.png" class="glightbox" data-title="Formulario de Reasignación" data-gallery="reasignaciones">
+            <img src="/Imagenes/60.ficha_solicitud_reasignacion_1.3.png" alt="Formulario de Reasignación">
+          </a>
+          <span class="img-zoom-hint">🔍 Clic para ampliar</span>
+        </div>
+        <p>Confirmá mediante búsqueda inteligente el nombre del nuevo agente responsable.</p>
+        <div class="img-wrap">
+          <a href="/Imagenes/60.ficha_solicitud_reasignacion_1.4.png" class="glightbox" data-title="Confirmación del nuevo responsable" data-gallery="reasignaciones">
+            <img src="/Imagenes/60.ficha_solicitud_reasignacion_1.4.png" alt="Confirmación del nuevo responsable">
+          </a>
+          <span class="img-zoom-hint">🔍 Clic para ampliar</span>
+        </div>
+      </div>
+
+      <div class="step-card" id="paso-4">
+        <div class="step-header">
+          <div class="step-number">4</div>
+          <h4>Proceso Completado</h4>
+        </div>
+        <p>Si los pasos se realizaron correctamente, el sistema mostrará un aviso en color verde. La ficha del bien ahora refleja al nuevo responsable.</p>
+        <div class="img-wrap">
+          <a href="/Imagenes/60.ficha_solicitud_reasignacion_1.5.png" class="glightbox" data-title="Aviso de Proceso Completado" data-gallery="reasignaciones">
+            <img src="/Imagenes/60.ficha_solicitud_reasignacion_1.5.png" alt="Aviso de Proceso Completado">
+          </a>
+          <span class="img-zoom-hint">🔍 Clic para ampliar</span>
+        </div>
+        <div class="success-note">
+          ✅ <strong>Reasignación completada:</strong> La ficha del bien fue actualizada con el nuevo responsable de uso. No se generó movimiento de área ni de ubicación física.
+        </div>
+      </div>
+
+    </main>
+  </div>
+</div>
+
+<button id="scrollTopBtn" aria-label="Volver al inicio">↑</button>
+
+<script is:inline src="https://cdn.jsdelivr.net/npm/glightbox/dist/js/glightbox.min.js"></script>
+<script is:inline src="/JavaScript/javascript.js"></script>
+</body>
+</html>

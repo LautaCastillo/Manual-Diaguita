@@ -1,0 +1,19 @@
+
+{
+  "editor.formatOnSave": true,
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "[astro]": {
+    "editor.defaultFormatter": "astro-build.astro-vscode"
+  },
+  "editor.tabSize": 2,
+  "editor.insertSpaces": true,
+  "editor.wordWrap": "on",
+  "editor.bracketPairColorization.enabled": true,
+  "editor.guides.bracketPairs": "active",
+  "files.autoSave": "afterDelay",
+  "files.autoSaveDelay": 1000,
+  "prettier.singleQuote": true,
+  "prettier.printWidth": 100,
+  "explorer.confirmDelete": true,
+  "editor.minimap.enabled": false
+}

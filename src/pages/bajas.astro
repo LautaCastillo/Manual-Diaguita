@@ -1,0 +1,185 @@
+---
+const pageTitle = 'Bajas';
+---
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{pageTitle} — Manual SIU DIAGUITA</title>
+  <link rel="stylesheet" href="/CSS/styles.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/glightbox/dist/css/glightbox.min.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📋</text></svg>">
+</head>
+<body>
+
+<div id="progress-bar"></div>
+<div class="sidebar-overlay"></div>
+
+<div class="layout">
+  <aside class="sidebar">
+    <div class="sidebar-brand">
+      <div class="brand-icon">📋</div>
+      <h2>SIU Diaguita</h2>
+      <p>Manual de Usuario — Gestión de Patrimonio</p>
+    </div>
+
+    <nav class="sidebar-nav">
+      <div class="sidebar-nav-label">Navegación</div>
+
+      <a href="/"><span class="nav-icon">🏠</span> Inicio</a>
+      <a href="/altas"><span class="nav-icon">➕</span> Altas</a>
+      <a href="/transferencias"><span class="nav-icon">🔄</span> Transferencias</a>
+      <a href="/bajas" class="active"><span class="nav-icon">➖</span> Bajas</a>
+
+      <div class="sidebar-sub">
+        <a href="#paso-1">Datos de la Baja</a>
+        <a href="#paso-2">Selección de Bienes</a>
+        <a href="#paso-3">Finalizar Carga</a>
+        <a href="#paso-4">Autorización</a>
+        <a href="#paso-5">Reporte Institucional</a>
+      </div>
+
+      <a href="/reasignaciones"><span class="nav-icon">👤</span> Reasignaciones</a>
+    </nav>
+
+    <div class="sidebar-footer">Manual Oficial · SIU DIAGUITA</div>
+  </aside>
+
+  <div class="main-content">
+    <header class="topbar">
+      <div class="topbar-left">
+        <button class="hamburger" id="hamburgerBtn" aria-label="Menú">☰</button>
+        <div class="breadcrumb">Manual SIU DIAGUITA <span>/ Bajas</span></div>
+      </div>
+      <div class="topbar-right">
+        <button id="darkModeBtn">🌙 Modo oscuro</button>
+      </div>
+    </header>
+
+    <main class="content-area">
+      <h1>Bajas de Bienes Patrimoniales</h1>
+      <p class="page-subtitle">Retiro formal de bienes del inventario patrimonial activo.</p>
+
+      <div class="intro-box">
+        <strong>Objetivo:</strong> Registrar la baja patrimonial de un bien cuando exista una causa debidamente documentada y se encuentre cumplido el circuito administrativo correspondiente.
+      </div>
+
+      <div class="important">
+        <strong>⚠ ATENCIÓN:</strong> La registración en SIU-Diaguita no reemplaza la decisión administrativa. La baja patrimonial y la disposición física del bien (destrucción, transferencia, donación) <strong>no deben confundirse</strong>.
+      </div>
+
+      <h2>Procedimiento de Baja</h2>
+
+      <div class="stepper" aria-label="Progreso del procedimiento">
+        <div class="stepper-item active">
+          <div class="stepper-num">1</div>
+          <span class="stepper-label">Datos</span>
+        </div>
+        <div class="stepper-item">
+          <div class="stepper-num">2</div>
+          <span class="stepper-label">Selección</span>
+        </div>
+        <div class="stepper-item">
+          <div class="stepper-num">3</div>
+          <span class="stepper-label">Finalizar</span>
+        </div>
+        <div class="stepper-item">
+          <div class="stepper-num">4</div>
+          <span class="stepper-label">Autorizar</span>
+        </div>
+        <div class="stepper-item">
+          <div class="stepper-num">5</div>
+          <span class="stepper-label">Reporte</span>
+        </div>
+      </div>
+
+      <div class="step-card" id="paso-1">
+        <div class="step-header">
+          <div class="step-number">1</div>
+          <h4>Datos de la Baja</h4>
+        </div>
+        <p>Iniciá el trámite completando la información general que justifica la baja patrimonial. Debés indicar quién solicita la baja (Área Responsable).</p>
+        <div class="img-wrap">
+          <a href="/Imagenes/70.solicitud_baja_1.0.png" class="glightbox" data-title="Formulario de Datos de la Baja" data-gallery="bajas">
+            <img src="/Imagenes/70.solicitud_baja_1.0.png" alt="Formulario de Datos de la Baja">
+          </a>
+          <span class="img-zoom-hint">🔍 Clic para ampliar</span>
+        </div>
+      </div>
+
+      <div class="step-card" id="paso-2">
+        <div class="step-header">
+          <div class="step-number">2</div>
+          <h4>Selección de los Bienes</h4>
+        </div>
+        <p>Presioná <strong>"Agregar bienes"</strong> para comenzar la selección. Podés buscar por filtrado avanzado o ingresando el número del bien (NUI).</p>
+        <div class="img-wrap">
+          <a href="/Imagenes/70.solicitud_baja_1.2.png" class="glightbox" data-title="Panel de búsqueda de bienes" data-gallery="bajas">
+            <img src="/Imagenes/70.solicitud_baja_1.2.png" alt="Panel de búsqueda de bienes">
+          </a>
+          <span class="img-zoom-hint">🔍 Clic para ampliar</span>
+        </div>
+        <div class="img-wrap">
+          <a href="/Imagenes/70.solicitud_baja_1.4.png" class="glightbox" data-title="Bien agregado a la solicitud de baja" data-gallery="bajas">
+            <img src="/Imagenes/70.solicitud_baja_1.4.png" alt="Bien agregado a la solicitud">
+          </a>
+          <span class="img-zoom-hint">🔍 Clic para ampliar</span>
+        </div>
+      </div>
+
+      <div class="step-card" id="paso-3">
+        <div class="step-header">
+          <div class="step-number">3</div>
+          <h4>Finalizar Carga</h4>
+        </div>
+        <p>Cuando hayas terminado de agregar los bienes, utilizá el menú superior para finalizar la carga. El trámite queda pendiente de autorización.</p>
+        <div class="img-wrap">
+          <a href="/Imagenes/70.solicitud_baja_1.7.png" class="glightbox" data-title="Pantalla de confirmación de Finalizar Carga" data-gallery="bajas">
+            <img src="/Imagenes/70.solicitud_baja_1.7.png" alt="Pantalla de confirmación de Finalizar Carga">
+          </a>
+          <span class="img-zoom-hint">🔍 Clic para ampliar</span>
+        </div>
+      </div>
+
+      <div class="step-card" id="paso-4">
+        <div class="step-header">
+          <div class="step-number">4</div>
+          <h4>Autorización de la Baja</h4>
+        </div>
+        <p>El usuario con permisos selecciona <strong>"Autorizado"</strong> y puede añadir un comentario si lo desea.</p>
+        <div class="img-wrap">
+          <a href="/Imagenes/70.solicitud_baja_1.10.png" class="glightbox" data-title="Cartel de advertencia del sistema" data-gallery="bajas">
+            <img src="/Imagenes/70.solicitud_baja_1.10.png" alt="Cartel de advertencia del sistema">
+          </a>
+          <span class="img-zoom-hint">🔍 Clic para ampliar</span>
+        </div>
+        <p>Al confirmar, el estado se actualiza y el bien ya no figura como activo en el inventario.</p>
+      </div>
+
+      <div class="step-card" id="paso-5">
+        <div class="step-header">
+          <div class="step-number">5</div>
+          <h4>Emisión del Reporte Institucional</h4>
+        </div>
+        <p>Para dejar constancia documentada en el expediente, generá el reporte final haciendo clic en <strong>"Reporte institucional"</strong>.</p>
+        <div class="img-wrap">
+          <a href="/Imagenes/70.solicitud_baja_1.13.png" class="glightbox" data-title="PDF del Reporte de Baja" data-gallery="bajas">
+            <img src="/Imagenes/70.solicitud_baja_1.13.png" alt="PDF del Reporte de Baja">
+          </a>
+          <span class="img-zoom-hint">🔍 Clic para ampliar</span>
+        </div>
+        <div class="success-note">
+          ✅ <strong>Baja completada:</strong> El bien ya no figura como activo en el inventario patrimonial. El reporte PDF queda como constancia oficial del trámite.
+        </div>
+      </div>
+    </main>
+  </div>
+</div>
+
+<button id="scrollTopBtn" aria-label="Volver al inicio">↑</button>
+
+<script is:inline src="https://cdn.jsdelivr.net/npm/glightbox/dist/js/glightbox.min.js"></script>
+<script is:inline src="/JavaScript/javascript.js"></script>
+</body>
+</html>

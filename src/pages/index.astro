@@ -1,16 +1,46 @@
 ---
+import Layout from '../layouts/Layout.astro';
 ---
+	
+<Layout title="Inicio">
+    <div class="intro-box">
+        <p>Bienvenido al manual interactivo. Aquí encontrarás los procedimientos oficiales para registrar altas, transferencias y bajas de bienes patrimoniales en el sistema SIU DIAGUITA, incluyendo el uso de la extensión asistida.</p>
+        <strong>Consideraciones generales antes de iniciar:</strong>
+        <ul>
+            <li>Trabajar en <strong>SIU-Diaguita Producción</strong> cuando se trate de una operación real y definitiva. Utilizar <em>Desarrollo</em> únicamente para prácticas o simulaciones.</li>
+            <li>Reunir toda la documentación respaldatoria disponible: expediente o actuación, orden de compra cuando corresponda, factura u otro comprobante, acto administrativo si lo hubiera y antecedentes de recepción.</li>
+        </ul>
+    </div>
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+    <div class="section-content">
+        <h2>Entorno de Trabajo: Pantalla de Inicio</h2>
+        <p>Al ingresar al sistema con la extensión activada, la pantalla principal se transforma en una vista orientada a tareas. Así se ve el <strong>"Panel de trabajo"</strong> apenas entras, antes de realizar cualquier operación:</p>
+
+        <div class="step-card">
+            <h3>1. Parte Superior: Resumen y Pendientes</h3>
+            <p>Prioriza lo urgente mostrando un resumen general de los trámites en curso. Aquí puedes ver cuántas solicitudes tienes Pendientes de autorización, en Borradores, Autorizadas o Anuladas/rechazadas.</p>
+            <a href="/Imagenes/1.inicio_parte_arriba.png" class="glightbox" data-title="Resumen general de los trámites">
+                <img src="/Imagenes/1.inicio_parte_arriba.png" alt="Inicio - Parte Arriba del Panel">
+            </a>
+            <p class="image-caption">Figura 1: Vista superior del panel de trabajo asistido, mostrando el resumen de estados.</p>
+        </div>
+
+        <div class="step-card">
+            <h3>2. Parte Central: Operaciones Patrimoniales</h3>
+            <p>Debajo del resumen, encontrarás las tarjetas interactivas para iniciar o buscar cada trámite específico del área de patrimonio.</p>
+            <a href="/Imagenes/2.inicio_parte_operaciones.png" class="glightbox" data-title="Tarjetas interactivas de operaciones">
+                <img src="/Imagenes/2.inicio_parte_operaciones.png" alt="Inicio - Parte Central de Operaciones">
+            </a>
+            <p class="image-caption">Figura 2: Panel central con las tarjetas de operaciones principales.</p>
+        </div>
+
+        <div class="step-card">
+            <h3>3. Parte Inferior: Accesos Frecuentes</h3>
+            <p>Al final de la pantalla inicial, el sistema ofrece botones de acceso rápido a módulos complementarios que se utilizan habitualmente, como los reportes patrimoniales o el control documental.</p>
+            <a href="/Imagenes/3.inicio_parte_abajo.png" class="glightbox" data-title="Accesos rápidos a módulos complementarios">
+                <img src="/Imagenes/3.inicio_parte_abajo.png" alt="Inicio - Parte Abajo y Accesos Frecuentes">
+            </a>
+            <p class="image-caption">Figura 3: Panel inferior mostrando los botones de accesos frecuentes.</p>
+        </div>
+    </div>
+</Layout>
