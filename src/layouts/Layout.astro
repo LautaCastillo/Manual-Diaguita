@@ -1,62 +1,60 @@
 ---
-const { title } = Astro.props;
+import Sidebar from "../components/Sidebar.astro";
+import Topbar from "../components/Topbar.astro";
+
+interface SectionLink {
+  href: string;
+  label: string;
+}
+
+interface Props {
+  title: string;
+  currentPath?: string;
+  sections?: SectionLink[];
+}
+
+const { title, currentPath = "/", sections = [] } = Astro.props;
 ---
+
 <!doctype html>
 <html lang="es">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>{title} — Manual SIU DIAGUITA</title>
-  <link rel="stylesheet" href="/CSS/styles.css">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/glightbox/dist/css/glightbox.min.css">
-</head>
-<body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Manual de usuario del sistema institucional SIU Diaguita."
+    />
+    <title>{title} — Manual SIU DIAGUITA</title>
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="/CSS/styles.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/glightbox/dist/css/glightbox.min.css"
+    />
+  </head>
+  <body>
+    <div id="progress-bar"></div>
+    <div class="sidebar-overlay"></div>
 
-  <div id="progress-bar"></div>
-  <div class="sidebar-overlay"></div>
+    <div class="layout">
+      <Sidebar currentPath={currentPath} sections={sections} />
 
-  <div class="layout">
-    <aside class="sidebar">
-      <div class="sidebar-brand">
-        <div class="brand-icon">📋</div>
-        <h2>SIU Diaguita</h2>
-        <p>Manual de Usuario — Gestión de Patrimonio</p>
+      <div class="main-content">
+        <Topbar title={title} />
+
+        <main class="content-area">
+          <slot />
+        </main>
       </div>
-
-      <nav class="sidebar-nav">
-        <div class="sidebar-nav-label">Navegación</div>
-        <a href="/" class="active"><span class="nav-icon">🏠</span> Inicio</a>
-        <a href="/altas"><span class="nav-icon">➕</span> Altas</a>
-        <a href="/transferencias"><span class="nav-icon">🔄</span> Transferencias</a>
-        <a href="/bajas"><span class="nav-icon">➖</span> Bajas</a>
-        <a href="/reasignaciones"><span class="nav-icon">👤</span> Reasignaciones</a>
-      </nav>
-
-      <div class="sidebar-footer">Manual Oficial · SIU DIAGUITA</div>
-    </aside>
-
-    <div class="main-content">
-      <header class="topbar">
-        <div class="topbar-left">
-          <button class="hamburger" id="hamburgerBtn" aria-label="Menú">☰</button>
-          <div class="breadcrumb">Manual SIU DIAGUITA <span>/ {title}</span></div>
-        </div>
-        <div class="topbar-right">
-          <button id="darkModeBtn">🌙 Modo oscuro</button>
-        </div>
-      </header>
-
-      <main class="content-area">
-        <h1>Manual de Usuario — Gestión de Patrimonio</h1>
-        <p class="page-subtitle">Sistema SIU DIAGUITA</p>
-        <slot />
-      </main>
     </div>
-  </div>
 
-  <button id="scrollTopBtn" aria-label="Volver al inicio">↑</button>
+    <button id="scrollTopBtn" aria-label="Volver al inicio">↑</button>
 
-  <script is:inline src="https://cdn.jsdelivr.net/npm/glightbox/dist/js/glightbox.min.js"></script>
-  <script is:inline src="/JavaScript/javascript.js"></script>
-</body>
+    <script
+      is:inline
+      src="https://cdn.jsdelivr.net/npm/glightbox/dist/js/glightbox.min.js"
+    ></script>
+    <script is:inline src="/JavaScript/javascript.js"></script>
+  </body>
 </html>

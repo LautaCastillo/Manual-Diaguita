@@ -1,0 +1,104 @@
+---
+interface SectionLink {
+  href: string;
+  label: string;
+}
+
+interface Props {
+  currentPath: string;
+  sections?: SectionLink[];
+}
+
+const { currentPath, sections = [] } = Astro.props;
+---
+
+<aside class="sidebar">
+  <div class="sidebar-brand">
+    <div class="brand-icon">📋</div>
+    <h2>SIU Diaguita</h2>
+    <p>Manual de Usuario — Gestión de Patrimonio</p>
+  </div>
+
+  <nav class="sidebar-nav" aria-label="Navegación principal">
+    <div class="sidebar-nav-label">Navegación</div>
+
+    <a href="/" class={currentPath === "/" ? "active" : undefined}>
+      <span class="nav-icon">🏠</span> Inicio
+    </a>
+
+    <a href="/altas" class={currentPath === "/altas" ? "active" : undefined}>
+      <span class="nav-icon">➕</span> Altas
+    </a>
+    {
+      currentPath === "/altas" && sections.length > 0 && (
+        <div class="sidebar-sub">
+          {sections.map((s) => (
+            <a href={s.href}>{s.label}</a>
+          ))}
+        </div>
+      )
+    }
+
+    <a
+      href="/transferencias"
+      class={currentPath === "/transferencias" ? "active" : undefined}
+    >
+      <span class="nav-icon">🔄</span> Transferencias
+    </a>
+    {
+      currentPath === "/transferencias" && sections.length > 0 && (
+        <div class="sidebar-sub">
+          {sections.map((s) => (
+            <a href={s.href}>{s.label}</a>
+          ))}
+        </div>
+      )
+    }
+
+    <a href="/bajas" class={currentPath === "/bajas" ? "active" : undefined}>
+      <span class="nav-icon">➖</span> Bajas
+    </a>
+    {
+      currentPath === "/bajas" && sections.length > 0 && (
+        <div class="sidebar-sub">
+          {sections.map((s) => (
+            <a href={s.href}>{s.label}</a>
+          ))}
+        </div>
+      )
+    }
+
+    <a
+      href="/reasignaciones"
+      class={currentPath === "/reasignaciones" ? "active" : undefined}
+    >
+      <span class="nav-icon">👤</span> Reasignaciones
+    </a>
+    {
+      currentPath === "/reasignaciones" && sections.length > 0 && (
+        <div class="sidebar-sub">
+          {sections.map((s) => (
+            <a href={s.href}>{s.label}</a>
+          ))}
+        </div>
+      )
+    }
+    <a
+      href="/consultas"
+      class={currentPath === "/consultas" ? "active" : undefined}
+    >
+      <span class="nav-icon">🔍</span> Consultas
+    </a>
+    {
+      currentPath === "/consultas" && sections.length > 0 && (
+        <div class="sidebar-sub">
+          {sections.map((s) => (
+            <a href={s.href}>{s.label}</a>
+          ))}
+        </div>
+      )
+    }
+  </nav>
+
+  <div class="sidebar-footer">Manual Oficial · SIU DIAGUITA</div>
+</aside>

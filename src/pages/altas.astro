@@ -1,267 +1,204 @@
 ---
-const pageTitle = 'Altas';
+import Layout from "../layouts/Layout.astro";
+
+const sections = [
+  { href: "#paso-1", label: "Datos del Alta (Carátula)" },
+  { href: "#paso-2", label: "Acto Administrativo" },
+  { href: "#paso-3", label: "Carga de Bienes" },
+  { href: "#paso-4", label: "Asociar a Catálogo" },
+  { href: "#paso-5", label: "Finalizar y Autorizar" },
+  { href: "#paso-6", label: "Emisión de Reportes" },
+];
 ---
-<!doctype html>
-<html lang="es">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>{pageTitle} — Manual SIU DIAGUITA</title>
-  <link rel="stylesheet" href="/CSS/styles.css">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/glightbox/dist/css/glightbox.min.css">
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📋</text></svg>">
-</head>
-<body>
 
-<div id="progress-bar"></div>
-<div class="sidebar-overlay"></div>
+<Layout title="Altas" currentPath="/altas" sections={sections}>
+<h1>Altas de Bienes Patrimoniales</h1>
+<p class="page-subtitle">Incorporación de nuevos bienes al inventario institucional.</p>
 
-<div class="layout">
+<div class="intro-box">
+  <strong>Objetivo:</strong> Registrar correctamente la incorporación de uno o más bienes al patrimonio institucional, identificando su origen, características, valor, responsables y ubicación física, conservando el reporte que lo respalda.
+</div>
 
-  <!-- ── SIDEBAR ──────────────────────────────────────── -->
-  <aside class="sidebar">
-    <div class="sidebar-brand">
-      <div class="brand-icon">📋</div>
-      <h2>SIU Diaguita</h2>
-      <p>Manual de Usuario — Gestión de Patrimonio</p>
-    </div>
+<h2>Procedimiento de Alta</h2>
 
-    <nav class="sidebar-nav">
-      <div class="sidebar-nav-label">Navegación</div>
-
-      <a href="/"><span class="nav-icon">🏠</span> Inicio</a>
-      <a href="/altas" class="active"><span class="nav-icon">➕</span> Altas</a>
-
-      <!-- Sub-links de esta página -->
-      <div class="sidebar-sub">
-        <a href="#paso-1">Datos del Alta (Carátula)</a>
-        <a href="#paso-2">Acto Administrativo</a>
-        <a href="#paso-3">Carga de Bienes</a>
-        <a href="#paso-4">Asociar a Catálogo</a>
-        <a href="#paso-5">Finalizar y Autorizar</a>
-        <a href="#paso-6">Emisión de Reportes</a>
-      </div>
-
-      <a href="/transferencias"><span class="nav-icon">🔄</span> Transferencias</a>
-      <a href="/bajas"><span class="nav-icon">➖</span> Bajas</a>
-      <a href="/reasignaciones"><span class="nav-icon">👤</span> Reasignaciones</a>
-    </nav>
-
-    <div class="sidebar-footer">Manual Oficial · SIU DIAGUITA</div>
-  </aside>
-
-  <!-- ── CONTENIDO PRINCIPAL ───────────────────────────── -->
-  <div class="main-content">
-
-    <header class="topbar">
-      <div class="topbar-left">
-        <button class="hamburger" id="hamburgerBtn" aria-label="Menú">☰</button>
-        <div class="breadcrumb">Manual SIU DIAGUITA <span>/ Altas</span></div>
-      </div>
-      <div class="topbar-right">
-        <button id="darkModeBtn">🌙 Modo oscuro</button>
-      </div>
-    </header>
-
-    <main class="content-area">
-
-      <h1>Altas de Bienes Patrimoniales</h1>
-      <p class="page-subtitle">Incorporación de nuevos bienes al inventario institucional.</p>
-
-      <div class="intro-box">
-        <strong>Objetivo:</strong> Registrar correctamente la incorporación de uno o más bienes al patrimonio institucional, identificando su origen, características, valor, responsables y ubicación física, conservando el reporte que lo respalda.
-      </div>
-
-      <h2>Procedimiento de Alta</h2>
-
-      <!-- Stepper visual -->
-      <div class="stepper" aria-label="Progreso del procedimiento">
-        <div class="stepper-item active">
-          <div class="stepper-num">1</div>
-          <span class="stepper-label">Carátula</span>
-        </div>
-        <div class="stepper-item">
-          <div class="stepper-num">2</div>
-          <span class="stepper-label">Acto Admin.</span>
-        </div>
-        <div class="stepper-item">
-          <div class="stepper-num">3</div>
-          <span class="stepper-label">Bienes</span>
-        </div>
-        <div class="stepper-item">
-          <div class="stepper-num">4</div>
-          <span class="stepper-label">Catálogo</span>
-        </div>
-        <div class="stepper-item">
-          <div class="stepper-num">5</div>
-          <span class="stepper-label">Autorizar</span>
-        </div>
-        <div class="stepper-item">
-          <div class="stepper-num">6</div>
-          <span class="stepper-label">Reporte</span>
-        </div>
-      </div>
-
-      <!-- Paso 1 -->
-      <div class="step-card" id="paso-1">
-        <div class="step-header">
-          <div class="step-number">1</div>
-          <h4>Datos del Alta (Carátula)</h4>
-        </div>
-        <p>Iniciamos una nueva alta completando la carátula. Los campos marcados con (*) son obligatorios.</p>
-        <ul>
-          <li><strong>Motivo alta:</strong> Define el motivo de la solicitud según corresponda.</li>
-          <li><strong>Ubicación física:</strong> El lugar donde se encontrará el bien, según la organización institucional.</li>
-          <li><strong>Área responsable:</strong> Depende del organigrama; debe ser única y coherente con la ubicación.</li>
-        </ul>
-        <p>Los campos opcionales (Expediente / Nro. Orden de compra) se completan cuando sea necesario para la vinculación.</p>
-        <div class="img-wrap">
-          <a href="/Imagenes/4.alta_nueva_parte_arriba.png" class="glightbox" data-title="Carátula del Alta — Datos generales" data-gallery="altas">
-            <img src="/Imagenes/4.alta_nueva_parte_arriba.png" alt="Formulario de Datos del Alta">
-          </a>
-          <span class="img-zoom-hint">🔍 Clic para ampliar</span>
-        </div>
-        <p class="image-caption">Figura 1: Pantalla inicial para completar los datos generales (Carátula) del Alta.</p>
-      </div>
-
-      <!-- Paso 2 -->
-      <div class="step-card" id="paso-2">
-        <div class="step-header">
-          <div class="step-number">2</div>
-          <h4>Acto Administrativo</h4>
-        </div>
-        <p>Se completan los datos necesarios que habiliten y respalden el alta. Este paso vincula resoluciones o actos administrativos al trámite.</p>
-        <div class="img-wrap">
-          <a href="/Imagenes/5.alta_nueva_parte_abajo.png" class="glightbox" data-title="Acto Administrativo" data-gallery="altas">
-            <img src="/Imagenes/5.alta_nueva_parte_abajo.png" alt="Formulario de Acto Administrativo">
-          </a>
-          <span class="img-zoom-hint">🔍 Clic para ampliar</span>
-        </div>
-        <p class="image-caption">Figura 2: Sección para vincular resoluciones o actos administrativos.</p>
-      </div>
-
-      <!-- Paso 3 -->
-      <div class="step-card" id="paso-3">
-        <div class="step-header">
-          <div class="step-number">3</div>
-          <h4>Carga de Bienes Patrimoniales</h4>
-        </div>
-        <p>En esta etapa definimos qué vamos a dar de alta. La ficha de solicitud muestra las operaciones y datos generales previamente cargados.</p>
-        <div class="img-wrap">
-          <a href="/Imagenes/6.alta_nueva_ficha_alta_bienPatrimonial.png" class="glightbox" data-title="Ficha de Alta de Bien Patrimonial" data-gallery="altas">
-            <img src="/Imagenes/6.alta_nueva_ficha_alta_bienPatrimonial.png" alt="Ficha de Alta">
-          </a>
-          <span class="img-zoom-hint">🔍 Clic para ampliar</span>
-        </div>
-
-        <p>Hacé clic en el botón <strong>"Nuevo bien"</strong> para comenzar. Todos los datos a cargar están relacionados al bien: información técnica, descripción, observaciones.</p>
-        <div class="img-wrap">
-          <a href="/Imagenes/8.alta_nueva_ficha_alta_bienPatrimonial_nuevoBien.png" class="glightbox" data-title="Formulario de Nuevo Bien" data-gallery="altas">
-            <img src="/Imagenes/8.alta_nueva_ficha_alta_bienPatrimonial_nuevoBien.png" alt="Formulario de Nuevo Bien">
-          </a>
-          <span class="img-zoom-hint">🔍 Clic para ampliar</span>
-        </div>
-
-        <p>El bien ya cargado aparece en la lista y se muestra el resumen del monto total en la parte inferior.</p>
-        <div class="img-wrap">
-          <a href="/Imagenes/10.alta_nueva_ficha_alta_bienPatrimonial_nuevoBien_agregado_muestraComoAgrega.png" class="glightbox" data-title="Bien agregado a la solicitud" data-gallery="altas">
-            <img src="/Imagenes/10.alta_nueva_ficha_alta_bienPatrimonial_nuevoBien_agregado_muestraComoAgrega.png" alt="Vista general con el bien agregado">
-          </a>
-          <span class="img-zoom-hint">🔍 Clic para ampliar</span>
-        </div>
-      </div>
-
-      <!-- Paso 4 -->
-      <div class="step-card" id="paso-4">
-        <div class="step-header">
-          <div class="step-number">4</div>
-          <h4>Asociar a Catálogo</h4>
-        </div>
-        <p>El botón <strong>"Asociar a catálogo"</strong> define el detalle que le asociamos al bien. Los datos de la columna derecha se usan en el proceso de cálculo de amortización.</p>
-
-        <div class="tip">
-          <strong>💡 Tip:</strong> Podés usar los filtros (por Nombre o Código) para agilizar la búsqueda en catálogos extensos.
-        </div>
-
-        <div class="img-wrap">
-          <a href="/Imagenes/13.asociar_catalogo_parte2_filtrado.png" class="glightbox" data-title="Búsqueda con filtros en catálogo" data-gallery="altas">
-            <img src="/Imagenes/13.asociar_catalogo_parte2_filtrado.png" alt="Búsqueda con Filtros">
-          </a>
-          <span class="img-zoom-hint">🔍 Clic para ampliar</span>
-        </div>
-        <div class="img-wrap">
-          <a href="/Imagenes/15.asociar_catalogo_parte3_actualizado.png" class="glightbox" data-title="Tabla actualizada con código de catálogo" data-gallery="altas">
-            <img src="/Imagenes/15.asociar_catalogo_parte3_actualizado.png" alt="Tabla actualizada">
-          </a>
-          <span class="img-zoom-hint">🔍 Clic para ampliar</span>
-        </div>
-        <p class="image-caption">La tabla de bienes patrimoniales ahora muestra el código de catálogo asignado.</p>
-      </div>
-
-      <!-- Paso 5 -->
-      <div class="step-card" id="paso-5">
-        <div class="step-header">
-          <div class="step-number">5</div>
-          <h4>Revisión, Finalizar Carga y Autorizar</h4>
-        </div>
-        <p>La solicitud transita tres estados: <strong>Borrador → Pendiente → Autorizado</strong>.</p>
-        <p>Al hacer clic en <strong>"Finalizar carga"</strong>, se notifica al autorizante para continuar el trámite.</p>
-        <div class="img-wrap">
-          <a href="/Imagenes/16.finalizar_carga_chequeo.png" class="glightbox" data-title="Confirmación de Finalizar Carga" data-gallery="altas">
-            <img src="/Imagenes/16.finalizar_carga_chequeo.png" alt="Confirmación Finalizar Carga">
-          </a>
-          <span class="img-zoom-hint">🔍 Clic para ampliar</span>
-        </div>
-        <p>El autorizante podrá aceptar o rechazar el trámite. Si es rechazado, puede ser modificado y reenviado.</p>
-        <div class="img-wrap">
-          <a href="/Imagenes/20.chequeo_antes_autorizar.png" class="glightbox" data-title="Alerta de confirmación antes de autorizar" data-gallery="altas">
-            <img src="/Imagenes/20.chequeo_antes_autorizar.png" alt="Alerta de confirmación">
-          </a>
-          <span class="img-zoom-hint">🔍 Clic para ampliar</span>
-        </div>
-      </div>
-
-      <!-- Paso 6 -->
-      <div class="step-card" id="paso-6">
-        <div class="step-header">
-          <div class="step-number">6</div>
-          <h4>Emisión de Reportes</h4>
-        </div>
-        <p>Una vez autorizado, el bien queda dado de alta y se le asigna un <strong>NUI (Número Único de Identificación)</strong>.</p>
-        <div class="img-wrap">
-          <a href="/Imagenes/22.ficha_alta_autorizada_muestra_datos_parteArriba.png" class="glightbox" data-title="Ficha autorizada con NUI asignado" data-gallery="altas">
-            <img src="/Imagenes/22.ficha_alta_autorizada_muestra_datos_parteArriba.png" alt="Ficha Autorizada con NUI">
-          </a>
-          <span class="img-zoom-hint">🔍 Clic para ampliar</span>
-        </div>
-
-        <p>Para concluir formalmente el trámite, utilizá la opción <strong>"Reporte de alta"</strong> para emitir el PDF final.</p>
-
-        <div class="success-note">
-          ✅ <strong>Trámite completado:</strong> El bien ya figura en el inventario patrimonial con su NUI asignado. Guardá el reporte PDF como constancia.
-        </div>
-
-        <div class="img-wrap">
-          <a href="/Imagenes/24.generar_reporte.png" class="glightbox" data-title="Botón Generar Reporte PDF" data-gallery="altas">
-            <img src="/Imagenes/24.generar_reporte.png" alt="Botón Generar Reporte PDF">
-          </a>
-          <span class="img-zoom-hint">🔍 Clic para ampliar</span>
-        </div>
-        <div class="img-wrap">
-          <a href="/Imagenes/25.generar_reporte_alta_modo_impresion.png" class="glightbox" data-title="PDF del Reporte de Alta" data-gallery="altas">
-            <img src="/Imagenes/25.generar_reporte_alta_modo_impresion.png" alt="PDF del Reporte de Alta">
-          </a>
-          <span class="img-zoom-hint">🔍 Clic para ampliar</span>
-        </div>
-      </div>
-
-    </main>
+<!-- Stepper visual -->
+<div class="stepper" aria-label="Progreso del procedimiento">
+  <div class="stepper-item active">
+    <div class="stepper-num">1</div>
+    <span class="stepper-label">Carátula</span>
+  </div>
+  <div class="stepper-item">
+    <div class="stepper-num">2</div>
+    <span class="stepper-label">Acto Admin.</span>
+  </div>
+  <div class="stepper-item">
+    <div class="stepper-num">3</div>
+    <span class="stepper-label">Bienes</span>
+  </div>
+  <div class="stepper-item">
+    <div class="stepper-num">4</div>
+    <span class="stepper-label">Catálogo</span>
+  </div>
+  <div class="stepper-item">
+    <div class="stepper-num">5</div>
+    <span class="stepper-label">Autorizar</span>
+  </div>
+  <div class="stepper-item">
+    <div class="stepper-num">6</div>
+    <span class="stepper-label">Reporte</span>
   </div>
 </div>
 
-<button id="scrollTopBtn" aria-label="Volver al inicio">↑</button>
+<!-- Paso 1 -->
+<div class="step-card" id="paso-1">
+  <div class="step-header">
+    <div class="step-number">1</div>
+    <h4>Datos del Alta (Carátula)</h4>
+  </div>
+  <p>Iniciamos una nueva alta completando la carátula. Los campos marcados con (*) son obligatorios.</p>
+  <ul>
+    <li><strong>Motivo alta:</strong> Define el motivo de la solicitud según corresponda.</li>
+    <li><strong>Ubicación física:</strong> El lugar donde se encontrará el bien, según la organización institucional.</li>
+    <li><strong>Área responsable:</strong> Depende del organigrama; debe ser única y coherente con la ubicación.</li>
+  </ul>
+  <p>Los campos opcionales (Expediente / Nro. Orden de compra) se completan cuando sea necesario para la vinculación.</p>
+  <div class="img-wrap">
+    <a href="/Imagenes/4.alta_nueva_parte_arriba.png" class="glightbox" data-title="Carátula del Alta — Datos generales" data-gallery="altas">
+      <img src="/Imagenes/4.alta_nueva_parte_arriba.png" alt="Formulario de Datos del Alta">
+    </a>
+    <span class="img-zoom-hint">🔍 Clic para ampliar</span>
+  </div>
+  <p class="image-caption">Figura 1: Pantalla inicial para completar los datos generales (Carátula) del Alta.</p>
+</div>
 
-<script is:inline src="https://cdn.jsdelivr.net/npm/glightbox/dist/js/glightbox.min.js"></script>
-<script is:inline src="/JavaScript/javascript.js"></script>
-</body>
-</html>
+<!-- Paso 2 -->
+<div class="step-card" id="paso-2">
+  <div class="step-header">
+    <div class="step-number">2</div>
+    <h4>Acto Administrativo</h4>
+  </div>
+  <p>Se completan los datos necesarios que habiliten y respalden el alta. Este paso vincula resoluciones o actos administrativos al trámite.</p>
+  <div class="img-wrap">
+    <a href="/Imagenes/5.alta_nueva_parte_abajo.png" class="glightbox" data-title="Acto Administrativo" data-gallery="altas">
+      <img src="/Imagenes/5.alta_nueva_parte_abajo.png" alt="Formulario de Acto Administrativo">
+    </a>
+    <span class="img-zoom-hint">🔍 Clic para ampliar</span>
+  </div>
+  <p class="image-caption">Figura 2: Sección para vincular resoluciones o actos administrativos.</p>
+</div>
+
+<!-- Paso 3 -->
+<div class="step-card" id="paso-3">
+  <div class="step-header">
+    <div class="step-number">3</div>
+    <h4>Carga de Bienes Patrimoniales</h4>
+  </div>
+  <p>En esta etapa definimos qué vamos a dar de alta. La ficha de solicitud muestra las operaciones y datos generales previamente cargados.</p>
+  <div class="img-wrap">
+    <a href="/Imagenes/6.alta_nueva_ficha_alta_bienPatrimonial.png" class="glightbox" data-title="Ficha de Alta de Bien Patrimonial" data-gallery="altas">
+      <img src="/Imagenes/6.alta_nueva_ficha_alta_bienPatrimonial.png" alt="Ficha de Alta">
+    </a>
+    <span class="img-zoom-hint">🔍 Clic para ampliar</span>
+  </div>
+
+  <p>Hacé clic en el botón <strong>"Nuevo bien"</strong> para comenzar. Todos los datos a cargar están relacionados al bien: información técnica, descripción, observaciones.</p>
+  <div class="img-wrap">
+    <a href="/Imagenes/8.alta_nueva_ficha_alta_bienPatrimonial_nuevoBien.png" class="glightbox" data-title="Formulario de Nuevo Bien" data-gallery="altas">
+      <img src="/Imagenes/8.alta_nueva_ficha_alta_bienPatrimonial_nuevoBien.png" alt="Formulario de Nuevo Bien">
+    </a>
+    <span class="img-zoom-hint">🔍 Clic para ampliar</span>
+  </div>
+
+  <p>El bien ya cargado aparece en la lista y se muestra el resumen del monto total en la parte inferior.</p>
+  <div class="img-wrap">
+    <a href="/Imagenes/10.alta_nueva_ficha_alta_bienPatrimonial_nuevoBien_agregado_muestraComoAgrega.png" class="glightbox" data-title="Bien agregado a la solicitud" data-gallery="altas">
+      <img src="/Imagenes/10.alta_nueva_ficha_alta_bienPatrimonial_nuevoBien_agregado_muestraComoAgrega.png" alt="Vista general con el bien agregado">
+    </a>
+    <span class="img-zoom-hint">🔍 Clic para ampliar</span>
+  </div>
+</div>
+
+<!-- Paso 4 -->
+<div class="step-card" id="paso-4">
+  <div class="step-header">
+    <div class="step-number">4</div>
+    <h4>Asociar a Catálogo</h4>
+  </div>
+  <p>El botón <strong>"Asociar a catálogo"</strong> define el detalle que le asociamos al bien. Los datos de la columna derecha se usan en el proceso de cálculo de amortización.</p>
+
+  <div class="tip">
+    <strong>💡 Tip:</strong> Podés usar los filtros (por Nombre o Código) para agilizar la búsqueda en catálogos extensos.
+  </div>
+
+  <div class="img-wrap">
+    <a href="/Imagenes/13.asociar_catalogo_parte2_filtrado.png" class="glightbox" data-title="Búsqueda con filtros en catálogo" data-gallery="altas">
+      <img src="/Imagenes/13.asociar_catalogo_parte2_filtrado.png" alt="Búsqueda con Filtros">
+    </a>
+    <span class="img-zoom-hint">🔍 Clic para ampliar</span>
+  </div>
+  <div class="img-wrap">
+    <a href="/Imagenes/15.asociar_catalogo_parte3_actualizado.png" class="glightbox" data-title="Tabla actualizada con código de catálogo" data-gallery="altas">
+      <img src="/Imagenes/15.asociar_catalogo_parte3_actualizado.png" alt="Tabla actualizada">
+    </a>
+    <span class="img-zoom-hint">🔍 Clic para ampliar</span>
+  </div>
+  <p class="image-caption">La tabla de bienes patrimoniales ahora muestra el código de catálogo asignado.</p>
+</div>
+
+<!-- Paso 5 -->
+<div class="step-card" id="paso-5">
+  <div class="step-header">
+    <div class="step-number">5</div>
+    <h4>Revisión, Finalizar Carga y Autorizar</h4>
+  </div>
+  <p>La solicitud transita tres estados: <strong>Borrador → Pendiente → Autorizado</strong>.</p>
+  <p>Al hacer clic en <strong>"Finalizar carga"</strong>, se notifica al autorizante para continuar el trámite.</p>
+  <div class="img-wrap">
+    <a href="/Imagenes/16.finalizar_carga_chequeo.png" class="glightbox" data-title="Confirmación de Finalizar Carga" data-gallery="altas">
+      <img src="/Imagenes/16.finalizar_carga_chequeo.png" alt="Confirmación Finalizar Carga">
+    </a>
+    <span class="img-zoom-hint">🔍 Clic para ampliar</span>
+  </div>
+  <p>El autorizante podrá aceptar o rechazar el trámite. Si es rechazado, puede ser modificado y reenviado.</p>
+  <div class="img-wrap">
+    <a href="/Imagenes/20.chequeo_antes_autorizar.png" class="glightbox" data-title="Alerta de confirmación antes de autorizar" data-gallery="altas">
+      <img src="/Imagenes/20.chequeo_antes_autorizar.png" alt="Alerta de confirmación">
+    </a>
+    <span class="img-zoom-hint">🔍 Clic para ampliar</span>
+  </div>
+</div>
+
+<!-- Paso 6 -->
+<div class="step-card" id="paso-6">
+  <div class="step-header">
+    <div class="step-number">6</div>
+    <h4>Emisión de Reportes</h4>
+  </div>
+  <p>Una vez autorizado, el bien queda dado de alta y se le asigna un <strong>NUI (Número Único de Identificación)</strong>.</p>
+  <div class="img-wrap">
+    <a href="/Imagenes/22.ficha_alta_autorizada_muestra_datos_parteArriba.png" class="glightbox" data-title="Ficha autorizada con NUI asignado" data-gallery="altas">
+      <img src="/Imagenes/22.ficha_alta_autorizada_muestra_datos_parteArriba.png" alt="Ficha Autorizada con NUI">
+    </a>
+    <span class="img-zoom-hint">🔍 Clic para ampliar</span>
+  </div>
+
+  <p>Para concluir formalmente el trámite, utilizá la opción <strong>"Reporte de alta"</strong> para emitir el PDF final.</p>
+
+  <div class="success-note">
+    ✅ <strong>Trámite completado:</strong> El bien ya figura en el inventario patrimonial con su NUI asignado. Guardá el reporte PDF como constancia.
+  </div>
+
+  <div class="img-wrap">
+    <a href="/Imagenes/24.generar_reporte.png" class="glightbox" data-title="Botón Generar Reporte PDF" data-gallery="altas">
+      <img src="/Imagenes/24.generar_reporte.png" alt="Botón Generar Reporte PDF">
+    </a>
+    <span class="img-zoom-hint">🔍 Clic para ampliar</span>
+  </div>
+  <div class="img-wrap">
+    <a href="/Imagenes/25.generar_reporte_alta_modo_impresion.png" class="glightbox" data-title="PDF del Reporte de Alta" data-gallery="altas">
+      <img src="/Imagenes/25.generar_reporte_alta_modo_impresion.png" alt="PDF del Reporte de Alta">
+    </a>
+    <span class="img-zoom-hint">🔍 Clic para ampliar</span>
+  </div>
+</div>
+</Layout>
