@@ -1,0 +1,183 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const sections = [
+  { href: "#filtros", label: "Filtro de búsqueda" },
+  { href: "#resultados", label: "Resultados y Selección" },
+  { href: "#reasignacion", label: "Reasignación de responsable" },
+  { href: "#constancia", label: "Constancia de situación" },
+  { href: "#etiquetas", label: "Imprimir etiquetas" },
+  { href: "#sabum", label: "Antecedentes SABUM" },
+  { href: "#historial", label: "Historial de reasignaciones" }
+];
+---
+
+<Layout title="Bienes Patrimoniales" currentPath="/bienes" sections={sections}>
+  <h1>Bienes Patrimoniales</h1>
+  <p class="page-subtitle">Búsqueda avanzada, panel de resultados y ejecución de acciones rápidas sobre los bienes.</p>
+
+  <div class="intro-box">
+    <p>Esta sección centraliza la búsqueda de bienes en el sistema. Te permite aplicar múltiples filtros para encontrar exactamente lo que necesitas y, desde el mismo panel de resultados, ejecutar acciones masivas o individuales como Reasignaciones, emisión de Constancias, impresión de etiquetas o consultas al historial.</p>
+  </div>
+
+  <div class="step-card" id="filtros">
+    <div class="step-header">
+      <div class="step-number">1</div>
+      <h4>Filtro de búsqueda</h4>
+    </div>
+    <p>El panel inicial te ofrece múltiples criterios para acotar tu búsqueda. Puedes filtrar por Número patrimonial, Descripción, Ubicación física, Área responsable, Responsable de uso, Fecha de incorporación, entre otros. Una vez definidos tus criterios, presiona <strong>Filtrar</strong>.</p>
+    
+    <div class="img-wrap">
+      <a href="/Imagenes/BP_1.1_inicio_filtrobusquedabienes.png" class="glightbox" data-gallery="bienes">
+        <img src="/Imagenes/BP_1.1_inicio_filtrobusquedabienes.png" alt="Panel de múltiples filtros para la búsqueda de bienes" />
+      </a>
+      <span class="img-zoom-hint">🔍 Clic para ampliar</span>
+    </div>
+  </div>
+
+  <div class="step-card" id="resultados">
+    <div class="step-header">
+      <div class="step-number">2</div>
+      <h4>Panel de Resultados y Selección</h4>
+    </div>
+    <p>Tras aplicar los filtros, el sistema te devolverá un listado con los bienes coincidentes. Puedes personalizar qué columnas ver tildando o destildando las opciones en la parte superior (Nro. patrimonial, Descripción, Catálogo, Ubicación física, etc.).</p>
+    <p>Para trabajar con estos bienes, utiliza las casillas de verificación a la izquierda de cada fila. Puedes seleccionar bienes individuales o usar el botón <strong>Seleccionar todos</strong>.</p>
+    
+    <div class="img-wrap">
+      <a href="/Imagenes/BP_1.2_inicio_filtrobusquedabienes_resultado.png" class="glightbox" data-gallery="bienes">
+        <img src="/Imagenes/BP_1.2_inicio_filtrobusquedabienes_resultado.png" alt="Listado de resultados de la búsqueda con columnas visibles" />
+      </a>
+      <span class="img-zoom-hint">🔍 Clic para ampliar</span>
+    </div>
+    <div class="img-wrap">
+      <a href="/Imagenes/BP_1.4_inicio_filtrobusquedabienes_seleccionados.png" class="glightbox" data-gallery="bienes">
+        <img src="/Imagenes/BP_1.4_inicio_filtrobusquedabienes_seleccionados.png" alt="Bienes seleccionados en el panel de resultados" />
+      </a>
+      <span class="img-zoom-hint">🔍 Clic para ampliar</span>
+    </div>
+  </div>
+
+  <div class="step-card" id="reasignacion">
+    <div class="step-header">
+      <div class="step-number">3</div>
+      <h4>Acción rápida: Reasignación de responsable</h4>
+    </div>
+    <p>Si necesitas cambiar a la persona que tiene a cargo uno o varios bienes (siempre dentro de la misma Área responsable), selecciona los bienes y presiona el botón <strong>Reasignar Responsable de uso</strong>.</p>
+    <ol>
+      <li><strong>Paso 1:</strong> Revisa el Área responsable y los bienes seleccionados en la ventana emergente y presiona <em>Preparar cambio y seleccionar nuevo responsable</em>.</li>
+      <li><strong>Paso 2:</strong> En la ficha, escribe el nombre del nuevo Responsable de uso. La extensión detectará este cambio automáticamente.</li>
+      <li><strong>Paso 3:</strong> Confirma el nuevo responsable. El sistema te notificará mediante un cartel verde que la reasignación fue realizada correctamente en DIAGUITA.</li>
+    </ol>
+    
+    <div class="img-wrap">
+      <a href="/Imagenes/BP_1.6_inicio_filtrobusquedabienes_reasignar_paso1.png" class="glightbox" data-gallery="bienes">
+        <img src="/Imagenes/BP_1.6_inicio_filtrobusquedabienes_reasignar_paso1.png" alt="Primer paso para la reasignación de responsable" />
+      </a>
+      <span class="img-zoom-hint">🔍 Clic para ampliar</span>
+    </div>
+    <div class="img-wrap">
+      <a href="/Imagenes/BP_1.7_inicio_filtrobusquedabienes_reasignar_paso2.png" class="glightbox" data-gallery="bienes">
+        <img src="/Imagenes/BP_1.7_inicio_filtrobusquedabienes_reasignar_paso2.png" alt="Selección del nuevo responsable en la ficha" />
+      </a>
+      <span class="img-zoom-hint">🔍 Clic para ampliar</span>
+    </div>
+    <div class="img-wrap">
+      <a href="/Imagenes/BP_1.8_inicio_filtrobusquedabienes_reasignar_resultado.png" class="glightbox" data-gallery="bienes">
+        <img src="/Imagenes/BP_1.8_inicio_filtrobusquedabienes_reasignar_resultado.png" alt="Cartel de éxito confirmando la reasignación en Diaguita" />
+      </a>
+      <span class="img-zoom-hint">🔍 Clic para ampliar</span>
+    </div>
+  </div>
+
+  <div class="step-card" id="constancia">
+    <div class="step-header">
+      <div class="step-number">4</div>
+      <h4>Constancia de situación patrimonial</h4>
+    </div>
+    <p>Esta herramienta permite generar un certificado oficial para un agente, comúnmente utilizado para acompañar el Formulario de Trámite Inmediato de baja de personal.</p>
+    <p>Para emitir la constancia, debes completar la sección de <strong>Identificación y actuación</strong>, indicando el Apellido y nombre del agente, Legajo, DNI, número de Expediente y el destino del trámite (por ejemplo, Dirección de Rendiciones de Cuentas). Si la persona trabaja en la Universidad pero aún no figura en el padrón de responsables de uso del sistema, puedes marcar la casilla correspondiente de "Persona no registrada" para completar su identificación manualmente.</p>
+    <p>Finalmente, revisa los datos de <strong>Emisión</strong> (Unidad principal emisora y Persona que certifica) y haz clic en <em>Generar / Imprimir constancia</em>. El sistema generará un documento PDF formal con el resultado de la verificación.</p>
+    
+    <div class="img-wrap">
+      <a href="/Imagenes/BP_1.11_inicio_filtrobusquedabienes_constanciaPatrimonial_parte1.1_noRegistrado.png" class="glightbox" data-gallery="bienes">
+        <img src="/Imagenes/BP_1.11_inicio_filtrobusquedabienes_constanciaPatrimonial_parte1.1_noRegistrado.png" alt="Opción para personas no registradas en el padrón" />
+      </a>
+      <span class="img-zoom-hint">🔍 Clic para ampliar</span>
+    </div>
+    <div class="img-wrap">
+      <a href="/Imagenes/BP_1.12_inicio_filtrobusquedabienes_constanciaPatrimonial_parte1.png" class="glightbox" data-gallery="bienes">
+        <img src="/Imagenes/BP_1.12_inicio_filtrobusquedabienes_constanciaPatrimonial_parte1.png" alt="Formulario de identificación y actuación para la constancia" />
+      </a>
+      <span class="img-zoom-hint">🔍 Clic para ampliar</span>
+    </div>
+    <div class="img-wrap">
+      <a href="/Imagenes/BP_1.13_inicio_filtrobusquedabienes_constanciaPatrimonial_parte2.png" class="glightbox" data-gallery="bienes">
+        <img src="/Imagenes/BP_1.13_inicio_filtrobusquedabienes_constanciaPatrimonial_parte2.png" alt="Sección de emisión de la constancia" />
+      </a>
+      <span class="img-zoom-hint">🔍 Clic para ampliar</span>
+    </div>
+    <div class="img-wrap">
+      <a href="/Imagenes/BP_1.14_inicio_filtrobusquedabienes_constanciaPatrimonial_impresion.png" class="glightbox" data-gallery="bienes">
+        <img src="/Imagenes/BP_1.14_inicio_filtrobusquedabienes_constanciaPatrimonial_impresion.png" alt="Documento PDF final de la Constancia de Situación Patrimonial" />
+      </a>
+      <span class="img-zoom-hint">🔍 Clic para ampliar</span>
+    </div>
+  </div>
+
+  <div class="step-card" id="etiquetas">
+    <div class="step-header">
+      <div class="step-number">5</div>
+      <h4>Imprimir etiquetas patrimoniales</h4>
+    </div>
+    <p>Puedes preparar masivamente la impresión de etiquetas (formato 60x30 mm) para los bienes de dos formas diferentes:</p>
+    <ul>
+      <li><strong>Por números de inventario:</strong> Ingresando o pegando manualmente los números separados por coma o espacio en el cuadro de texto.</li>
+      <li><strong>Por Alta patrimonial:</strong> Indicando el número y año del Alta para que la herramienta reúna automáticamente todos los inventarios incorporados en ese trámite.</li>
+    </ul>
+    
+    <div class="img-wrap">
+      <a href="/Imagenes/BP_1.16_inicio_filtrobusquedabienes_imprimirEtiquetas.png" class="glightbox" data-gallery="bienes">
+        <img src="/Imagenes/BP_1.16_inicio_filtrobusquedabienes_imprimirEtiquetas.png" alt="Ventana de preparación masiva de etiquetas patrimoniales" />
+      </a>
+      <span class="img-zoom-hint">🔍 Clic para ampliar</span>
+    </div>
+  </div>
+
+  <div class="step-card" id="sabum">
+    <div class="step-header">
+      <div class="step-number">6</div>
+      <h4>Antecedentes SABUM / Observaciones</h4>
+    </div>
+    <p>Desde el panel de resultados, puedes acceder a los <strong>Antecedentes SABUM / Observaciones</strong>. Esta herramienta te permite buscar texto específico dentro del campo "Observaciones" de las fichas individuales de los bienes filtrados.</p>
+    <p>Puedes refinar aún más la búsqueda indicando si el bien contiene ALTA, BAJA, número de Expediente, Procedencia u Observación histórica. El sistema arrojará las coincidencias exactas detallando los antecedentes encontrados.</p>
+    
+    <div class="img-wrap">
+      <a href="/Imagenes/BP_1.9_inicio_filtrobusquedabienes_SABUM.png" class="glightbox" data-gallery="bienes">
+        <img src="/Imagenes/BP_1.9_inicio_filtrobusquedabienes_SABUM.png" alt="Herramienta de búsqueda en Antecedentes SABUM" />
+      </a>
+      <span class="img-zoom-hint">🔍 Clic para ampliar</span>
+    </div>
+    <div class="img-wrap">
+      <a href="/Imagenes/BP_1.10_inicio_filtrobusquedabienes_SABUMresultado.png" class="glightbox" data-gallery="bienes">
+        <img src="/Imagenes/BP_1.10_inicio_filtrobusquedabienes_SABUMresultado.png" alt="Resultados de la búsqueda de antecedentes SABUM" />
+      </a>
+      <span class="img-zoom-hint">🔍 Clic para ampliar</span>
+    </div>
+  </div>
+
+  <div class="step-card" id="historial">
+    <div class="step-header">
+      <div class="step-number">7</div>
+      <h4>Historial de reasignaciones</h4>
+    </div>
+    <p>Este panel funciona como un registro permanente de respaldo. Cada vez que se finaliza un cambio de responsable de uso o se concluye una transferencia, el sistema asigna automáticamente una numeración oficial a la reasignación, manteniendo una trazabilidad perfecta de "quién le entregó a quién".</p>
+    <p>Puedes filtrar el historial por Estado, Área, u Origen del movimiento, o utilizar la barra de búsqueda superior para encontrar un número de reasignación, fecha o responsable específico. Desde aquí también puedes exportar el respaldo o sincronizar pendientes con el Registro Central.</p>
+
+    <div class="img-wrap">
+      <a href="/Imagenes/BP_1.15_inicio_filtrobusquedabienes_historialReasignanciones.png" class="glightbox" data-gallery="bienes">
+        <img src="/Imagenes/BP_1.15_inicio_filtrobusquedabienes_historialReasignanciones.png" alt="Panel del historial de reasignaciones con registro permanente" />
+      </a>
+      <span class="img-zoom-hint">🔍 Clic para ampliar</span>
+    </div>
+  </div>
+</Layout>

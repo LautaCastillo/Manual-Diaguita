@@ -1,0 +1,55 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const sections = [
+  { href: "#interfaz", label: "Interfaz y Acciones" },
+  { href: "#campos", label: "Campos de Filtrado en Detalle" }
+];
+---
+
+<Layout title="Filtro de Búsqueda" currentPath="/filtro-busqueda" sections={sections}>
+  <h1>Filtro de búsqueda de bienes</h1>
+  <p class="page-subtitle">Exploración detallada de la interfaz simplificada y los criterios de búsqueda avanzada.</p>
+
+  <div class="intro-box">
+    <p>Esta sección detalla el funcionamiento del panel de filtros de bienes patrimoniales. Dada la gran cantidad de opciones disponibles, es fundamental conocer cómo combinar estos campos para obtener resultados precisos y aprovechar los atajos de la extensión.</p>
+  </div>
+
+  <div class="step-card" id="interfaz">
+    <div class="step-header">
+      <div class="step-number">1</div>
+      <h4>Interfaz Simplificada y Botones de Acción</h4>
+    </div>
+    <p>La cabecera del panel presenta una interfaz optimizada. Aunque los campos de texto y el botón <strong>Filtrar</strong> (abajo a la derecha) siguen siendo los controles originales del sistema DIAGUITA, la extensión incorpora una barra superior con botones de acceso directo a las acciones más comunes y útiles.</p>
+    <p>Desde esta barra puedes acceder con un solo clic a las siguientes herramientas sobre los resultados: <strong>Reasignación</strong>, <strong>Constancia patrimonial</strong>, <strong>Imprimir etiquetas</strong>, <strong>Antecedentes SABUM / Observaciones</strong>, <strong>Ver filtro original</strong> y el <strong>Historial de reasignaciones</strong>.</p>
+    
+    <div class="img-wrap">
+      <a href="/Imagenes/BP_1.0_filtrodebienes.png" class="glightbox" data-gallery="filtros">
+        <img src="/Imagenes/BP_1.0_filtrodebienes.png" alt="Barra superior de la interfaz simplificada de filtros" />
+      </a>
+      <span class="img-zoom-hint">🔍 Clic para ampliar</span>
+    </div>
+  </div>
+
+  <div class="step-card" id="campos">
+    <div class="step-header">
+      <div class="step-number">2</div>
+      <h4>Campos de Filtrado en Detalle</h4>
+    </div>
+    <p>El formulario central te permite cruzar hasta 17 variables diferentes para acotar tu búsqueda de manera exacta. A continuación, se detallan los usos de los campos más relevantes:</p>
+    <ul>
+        <li><strong>01 Nro. patrimonial y 02 Varios Nros. de inventario:</strong> El campo 01 busca un número individual, mientras que el campo 02 permite pegar una lista completa de números separados por comas, espacios o saltos de línea para realizar búsquedas masivas.</li>
+        <li><strong>04 Bienes a mostrar:</strong> Selector fundamental para definir el universo de la búsqueda. Permite elegir entre "Sólo los activos", "Sólo las bajas" o "Todos".</li>
+        <li><strong>05 Ubicación física y 07 Área responsable:</strong> Te permiten aislar bienes por dependencias. Se complementan con los campos 06 y 08 para indicar si deseas seguir o no la jerarquía de esas áreas.</li>
+        <li><strong>09 Responsable de uso:</strong> Incorpora un motor de búsqueda inteligente donde puedes escribir fragmentos del nombre en cualquier orden (por ejemplo, escribir "laura papa" encontrará automáticamente "DEL PAPA LAURA").</li>
+        <li><strong>Criterios técnicos y administrativos:</strong> También puedes refinar la búsqueda ingresando texto contenido en la <strong>Descripción (03)</strong> o en el <strong>Expediente (15)</strong>, buscando por <strong>Catálogo (11)</strong>, <strong>Proveedor (10)</strong>, <strong>Fechas de incorporación o baja (13 y 14)</strong>, <strong>Motivo de baja (16)</strong> o <strong>Valor del bien (17)</strong>.</li>
+    </ul>
+    
+    <div class="img-wrap">
+      <a href="/Imagenes/BP_1.1_inicio_filtrobusquedabienes.png" class="glightbox" data-gallery="filtros">
+        <img src="/Imagenes/BP_1.1_inicio_filtrobusquedabienes.png" alt="Panel detallado con los 17 campos de filtro de bienes" />
+      </a>
+      <span class="img-zoom-hint">🔍 Clic para ampliar</span>
+    </div>
+  </div>
+</Layout>
