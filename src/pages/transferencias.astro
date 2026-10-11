@@ -1,214 +1,154 @@
 ---
-const pageTitle = 'Transferencias';
+import Layout from "../layouts/Layout.astro";
+
+const sections = [
+  { href: "#paso-1", label: "Área de Origen y Destino" },
+  { href: "#paso-2", label: "Selección de Bienes" },
+  { href: "#paso-3", label: "Finalizar Carga" },
+  { href: "#paso-4", label: "Autorización" },
+  { href: "#paso-5", label: "Emisión de Reporte" },
+  { href: "#paso-6", label: "Nuevo Responsable" },
+];
 ---
-<!doctype html>
-<html lang="es">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>{pageTitle} — Manual SIU DIAGUITA</title>
-  <link rel="stylesheet" href="/CSS/styles.css">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/glightbox/dist/css/glightbox.min.css">
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📋</text></svg>">
-</head>
-<body>
 
-<div id="progress-bar"></div>
-<div class="sidebar-overlay"></div>
+<Layout title="Transferencias" currentPath="/transferencias" sections={sections}>
+<h1>Transferencias de Bienes Patrimoniales</h1>
+<p class="page-subtitle">Movimiento de bienes entre áreas responsables con trazabilidad completa.</p>
 
-<div class="layout">
+<div class="intro-box">
+  <strong>Objetivo:</strong> Registrar el traslado de responsabilidad patrimonial de uno o más bienes desde un área a otra, preservando la trazabilidad del movimiento y dejando definidos el destino, el responsable de uso y la ubicación física resultante.
+</div>
 
-  <aside class="sidebar">
-    <div class="sidebar-brand">
-      <div class="brand-icon">📋</div>
-      <h2>SIU Diaguita</h2>
-      <p>Manual de Usuario — Gestión de Patrimonio</p>
-    </div>
+<div class="important">
+  <strong>⚠ ¿CUÁNDO CORRESPONDE?</strong> Utilizá transferencia SOLO cuando cambia el Área Responsable del bien. Si el área permanece igual y solamente cambia la persona que lo utiliza, corresponde aplicar el procedimiento de <a href="/reasignaciones">Reasignaciones</a>.
+</div>
 
-    <nav class="sidebar-nav">
-      <div class="sidebar-nav-label">Navegación</div>
+<h2>Procedimiento de Transferencia</h2>
 
-      <a href="/"><span class="nav-icon">🏠</span> Inicio</a>
-      <a href="/altas"><span class="nav-icon">➕</span> Altas</a>
-      <a href="/transferencias" class="active"><span class="nav-icon">🔄</span> Transferencias</a>
-
-      <div class="sidebar-sub">
-        <a href="#paso-1">Área de Origen y Destino</a>
-        <a href="#paso-2">Selección de Bienes</a>
-        <a href="#paso-3">Finalizar Carga</a>
-        <a href="#paso-4">Autorización</a>
-        <a href="#paso-5">Emisión de Reporte</a>
-        <a href="#paso-6">Nuevo Responsable</a>
-      </div>
-
-      <a href="/bajas"><span class="nav-icon">➖</span> Bajas</a>
-      <a href="/reasignaciones"><span class="nav-icon">👤</span> Reasignaciones</a>
-    </nav>
-
-    <div class="sidebar-footer">Manual Oficial · SIU DIAGUITA</div>
-  </aside>
-
-  <div class="main-content">
-
-    <header class="topbar">
-      <div class="topbar-left">
-        <button class="hamburger" id="hamburgerBtn" aria-label="Menú">☰</button>
-        <div class="breadcrumb">Manual SIU DIAGUITA <span>/ Transferencias</span></div>
-      </div>
-      <div class="topbar-right">
-        <button id="darkModeBtn">🌙 Modo oscuro</button>
-      </div>
-    </header>
-
-    <main class="content-area">
-
-      <h1>Transferencias de Bienes Patrimoniales</h1>
-      <p class="page-subtitle">Movimiento de bienes entre áreas responsables con trazabilidad completa.</p>
-
-      <div class="intro-box">
-        <strong>Objetivo:</strong> Registrar el traslado de responsabilidad patrimonial de uno o más bienes desde un área a otra, preservando la trazabilidad del movimiento y dejando definidos el destino, el responsable de uso y la ubicación física resultante.
-      </div>
-
-      <div class="important">
-        <strong>⚠ ¿CUÁNDO CORRESPONDE?</strong> Utilizá transferencia SOLO cuando cambia el Área Responsable del bien. Si el área permanece igual y solamente cambia la persona que lo utiliza, corresponde aplicar el procedimiento de <a href="/reasignaciones">Reasignaciones</a>.
-      </div>
-
-      <h2>Procedimiento de Transferencia</h2>
-
-      <div class="stepper" aria-label="Progreso del procedimiento">
-        <div class="stepper-item active">
-          <div class="stepper-num">1</div>
-          <span class="stepper-label">Origen / Destino</span>
-        </div>
-        <div class="stepper-item">
-          <div class="stepper-num">2</div>
-          <span class="stepper-label">Selección</span>
-        </div>
-        <div class="stepper-item">
-          <div class="stepper-num">3</div>
-          <span class="stepper-label">Finalizar</span>
-        </div>
-        <div class="stepper-item">
-          <div class="stepper-num">4</div>
-          <span class="stepper-label">Autorizar</span>
-        </div>
-        <div class="stepper-item">
-          <div class="stepper-num">5</div>
-          <span class="stepper-label">Reporte</span>
-        </div>
-        <div class="stepper-item">
-          <div class="stepper-num">6</div>
-          <span class="stepper-label">Responsable</span>
-        </div>
-      </div>
-
-      <div class="step-card" id="paso-1">
-        <div class="step-header">
-          <div class="step-number">1</div>
-          <h4>Área de Origen y Destino</h4>
-        </div>
-        <p>El trámite comienza identificando al responsable actual (origen) y definiendo hacia dónde se enviarán los bienes (destino).</p>
-        <div class="img-wrap">
-          <a href="/Imagenes/30.transferencia_nueva.png" class="glightbox" data-title="Selección de Área de Origen" data-gallery="transferencias">
-            <img src="/Imagenes/30.transferencia_nueva.png" alt="Selección de Área de Origen">
-          </a>
-          <span class="img-zoom-hint">🔍 Clic para ampliar</span>
-        </div>
-        <div class="img-wrap">
-          <a href="/Imagenes/31.transferencia_nueva_formulario.png" class="glightbox" data-title="Formulario de Destino y Ubicación" data-gallery="transferencias">
-            <img src="/Imagenes/31.transferencia_nueva_formulario.png" alt="Formulario de Destino y Ubicación">
-          </a>
-          <span class="img-zoom-hint">🔍 Clic para ampliar</span>
-        </div>
-      </div>
-
-      <div class="step-card" id="paso-2">
-        <div class="step-header">
-          <div class="step-number">2</div>
-          <h4>Selección de Bienes</h4>
-        </div>
-        <p>Una vez definida la carátula, agregamos los bienes. El sistema mostrará únicamente los bienes que pertenezcan al área de origen seleccionada.</p>
-        <div class="img-wrap">
-          <a href="/Imagenes/32.transferencia_nueva_formulario_agregar_bien.png" class="glightbox" data-title="Filtrado y selección de bienes" data-gallery="transferencias">
-            <img src="/Imagenes/32.transferencia_nueva_formulario_agregar_bien.png" alt="Filtrado y selección de bienes">
-          </a>
-          <span class="img-zoom-hint">🔍 Clic para ampliar</span>
-        </div>
-      </div>
-
-      <div class="step-card" id="paso-3">
-        <div class="step-header">
-          <div class="step-number">3</div>
-          <h4>Finalizar Carga</h4>
-        </div>
-        <p>Tras revisar que no se hayan incorporado bienes ajenos al trámite, se procede a finalizar la carga para enviarla a autorización.</p>
-        <div class="img-wrap">
-          <a href="/Imagenes/36.ficha_solicitud_tranferencia_finalizar_carga.png" class="glightbox" data-title="Confirmar Finalizar Carga" data-gallery="transferencias">
-            <img src="/Imagenes/36.ficha_solicitud_tranferencia_finalizar_carga.png" alt="Confirmar Finalizar Carga">
-          </a>
-          <span class="img-zoom-hint">🔍 Clic para ampliar</span>
-        </div>
-      </div>
-
-      <div class="step-card" id="paso-4">
-        <div class="step-header">
-          <div class="step-number">4</div>
-          <h4>Autorización de la Transferencia</h4>
-        </div>
-        <p>El usuario competente debe revisar el trámite y cambiar su estado a <strong>"Autorizado"</strong>.</p>
-        <div class="img-wrap">
-          <a href="/Imagenes/40.ficha_solicitud_tranferencia_ficha_antes_de_autorizar.png" class="glightbox" data-title="Pantalla Autorizar solicitud" data-gallery="transferencias">
-            <img src="/Imagenes/40.ficha_solicitud_tranferencia_ficha_antes_de_autorizar.png" alt="Pantalla Autorizar solicitud">
-          </a>
-          <span class="img-zoom-hint">🔍 Clic para ampliar</span>
-        </div>
-        <div class="img-wrap">
-          <a href="/Imagenes/43.ficha_solicitud_tranferencia_ficha_autorizada.png" class="glightbox" data-title="Ficha en estado Autorizado" data-gallery="transferencias">
-            <img src="/Imagenes/43.ficha_solicitud_tranferencia_ficha_autorizada.png" alt="Ficha en estado Autorizado">
-          </a>
-          <span class="img-zoom-hint">🔍 Clic para ampliar</span>
-        </div>
-      </div>
-
-      <div class="step-card" id="paso-5">
-        <div class="step-header">
-          <div class="step-number">5</div>
-          <h4>Emisión del Reporte</h4>
-        </div>
-        <p>Con el trámite autorizado, es necesario emitir la constancia (Ficha ampliada PDF) y obtener las firmas correspondientes.</p>
-        <div class="img-wrap">
-          <a href="/Imagenes/45.ficha_solicitud_tranferencia_generar_ficha_pdf_impresion.png" class="glightbox" data-title="PDF de la Transferencia" data-gallery="transferencias">
-            <img src="/Imagenes/45.ficha_solicitud_tranferencia_generar_ficha_pdf_impresion.png" alt="PDF de la Transferencia">
-          </a>
-          <span class="img-zoom-hint">🔍 Clic para ampliar</span>
-        </div>
-      </div>
-
-      <div class="step-card" id="paso-6">
-        <div class="step-header">
-          <div class="step-number">6</div>
-          <h4>Asignar al Nuevo Responsable de Uso</h4>
-        </div>
-        <p>Como la transferencia cambió el "Área", ahora debemos especificar qué <strong>persona exacta</strong> será el responsable directo del bien.</p>
-        <p>Seleccioná los bienes y presioná el botón <strong>"Continuar en Cambio de Responsable de uso"</strong>.</p>
-        <div class="img-wrap">
-          <a href="/Imagenes/50.ficha_solicitud_tranferencia_cambio_reasignacion.png" class="glightbox" data-title="Formulario de Reasignación post-transferencia" data-gallery="transferencias">
-            <img src="/Imagenes/50.ficha_solicitud_tranferencia_cambio_reasignacion.png" alt="Formulario de Reasignación">
-          </a>
-          <span class="img-zoom-hint">🔍 Clic para ampliar</span>
-        </div>
-        <div class="success-note">
-          ✅ El cartel verde indicará <strong>"Proceso completado en DIAGUITA"</strong>. La transferencia quedó registrada con el nuevo responsable asignado.
-        </div>
-      </div>
-
-    </main>
+<div class="stepper" aria-label="Progreso del procedimiento">
+  <div class="stepper-item active">
+    <div class="stepper-num">1</div>
+    <span class="stepper-label">Origen / Destino</span>
+  </div>
+  <div class="stepper-item">
+    <div class="stepper-num">2</div>
+    <span class="stepper-label">Selección</span>
+  </div>
+  <div class="stepper-item">
+    <div class="stepper-num">3</div>
+    <span class="stepper-label">Finalizar</span>
+  </div>
+  <div class="stepper-item">
+    <div class="stepper-num">4</div>
+    <span class="stepper-label">Autorizar</span>
+  </div>
+  <div class="stepper-item">
+    <div class="stepper-num">5</div>
+    <span class="stepper-label">Reporte</span>
+  </div>
+  <div class="stepper-item">
+    <div class="stepper-num">6</div>
+    <span class="stepper-label">Responsable</span>
   </div>
 </div>
 
-<button id="scrollTopBtn" aria-label="Volver al inicio">↑</button>
+<div class="step-card" id="paso-1">
+  <div class="step-header">
+    <div class="step-number">1</div>
+    <h4>Área de Origen y Destino</h4>
+  </div>
+  <p>El trámite comienza identificando al responsable actual (origen) y definiendo hacia dónde se enviarán los bienes (destino).</p>
+  <div class="img-wrap">
+    <a href="/Imagenes/30.transferencia_nueva.png" class="glightbox" data-title="Selección de Área de Origen" data-gallery="transferencias">
+      <img src="/Imagenes/30.transferencia_nueva.png" alt="Selección de Área de Origen">
+    </a>
+    <span class="img-zoom-hint">🔍 Clic para ampliar</span>
+  </div>
+  <div class="img-wrap">
+    <a href="/Imagenes/31.transferencia_nueva_formulario.png" class="glightbox" data-title="Formulario de Destino y Ubicación" data-gallery="transferencias">
+      <img src="/Imagenes/31.transferencia_nueva_formulario.png" alt="Formulario de Destino y Ubicación">
+    </a>
+    <span class="img-zoom-hint">🔍 Clic para ampliar</span>
+  </div>
+</div>
 
-<script is:inline src="https://cdn.jsdelivr.net/npm/glightbox/dist/js/glightbox.min.js"></script>
-<script is:inline src="/JavaScript/javascript.js"></script>
-</body>
-</html>
+<div class="step-card" id="paso-2">
+  <div class="step-header">
+    <div class="step-number">2</div>
+    <h4>Selección de Bienes</h4>
+  </div>
+  <p>Una vez definida la carátula, agregamos los bienes. El sistema mostrará únicamente los bienes que pertenezcan al área de origen seleccionada.</p>
+  <div class="img-wrap">
+    <a href="/Imagenes/32.transferencia_nueva_formulario_agregar_bien.png" class="glightbox" data-title="Filtrado y selección de bienes" data-gallery="transferencias">
+      <img src="/Imagenes/32.transferencia_nueva_formulario_agregar_bien.png" alt="Filtrado y selección de bienes">
+    </a>
+    <span class="img-zoom-hint">🔍 Clic para ampliar</span>
+  </div>
+</div>
+
+<div class="step-card" id="paso-3">
+  <div class="step-header">
+    <div class="step-number">3</div>
+    <h4>Finalizar Carga</h4>
+  </div>
+  <p>Tras revisar que no se hayan incorporado bienes ajenos al trámite, se procede a finalizar la carga para enviarla a autorización.</p>
+  <div class="img-wrap">
+    <a href="/Imagenes/36.ficha_solicitud_tranferencia_finalizar_carga.png" class="glightbox" data-title="Confirmar Finalizar Carga" data-gallery="transferencias">
+      <img src="/Imagenes/36.ficha_solicitud_tranferencia_finalizar_carga.png" alt="Confirmar Finalizar Carga">
+    </a>
+    <span class="img-zoom-hint">🔍 Clic para ampliar</span>
+  </div>
+</div>
+
+<div class="step-card" id="paso-4">
+  <div class="step-header">
+    <div class="step-number">4</div>
+    <h4>Autorización de la Transferencia</h4>
+  </div>
+  <p>El usuario competente debe revisar el trámite y cambiar su estado a <strong>"Autorizado"</strong>.</p>
+  <div class="img-wrap">
+    <a href="/Imagenes/40.ficha_solicitud_tranferencia_ficha_antes_de_autorizar.png" class="glightbox" data-title="Pantalla Autorizar solicitud" data-gallery="transferencias">
+      <img src="/Imagenes/40.ficha_solicitud_tranferencia_ficha_antes_de_autorizar.png" alt="Pantalla Autorizar solicitud">
+    </a>
+    <span class="img-zoom-hint">🔍 Clic para ampliar</span>
+  </div>
+  <div class="img-wrap">
+    <a href="/Imagenes/43.ficha_solicitud_tranferencia_ficha_autorizada.png" class="glightbox" data-title="Ficha en estado Autorizado" data-gallery="transferencias">
+      <img src="/Imagenes/43.ficha_solicitud_tranferencia_ficha_autorizada.png" alt="Ficha en estado Autorizado">
+    </a>
+    <span class="img-zoom-hint">🔍 Clic para ampliar</span>
+  </div>
+</div>
+
+<div class="step-card" id="paso-5">
+  <div class="step-header">
+    <div class="step-number">5</div>
+    <h4>Emisión del Reporte</h4>
+  </div>
+  <p>Con el trámite autorizado, es necesario emitir la constancia (Ficha ampliada PDF) y obtener las firmas correspondientes.</p>
+  <div class="img-wrap">
+    <a href="/Imagenes/45.ficha_solicitud_tranferencia_generar_ficha_pdf_impresion.png" class="glightbox" data-title="PDF de la Transferencia" data-gallery="transferencias">
+      <img src="/Imagenes/45.ficha_solicitud_tranferencia_generar_ficha_pdf_impresion.png" alt="PDF de la Transferencia">
+    </a>
+    <span class="img-zoom-hint">🔍 Clic para ampliar</span>
+  </div>
+</div>
+
+<div class="step-card" id="paso-6">
+  <div class="step-header">
+    <div class="step-number">6</div>
+    <h4>Asignar al Nuevo Responsable de Uso</h4>
+  </div>
+  <p>Como la transferencia cambió el "Área", ahora debemos especificar qué <strong>persona exacta</strong> será el responsable directo del bien.</p>
+  <p>Seleccioná los bienes y presioná el botón <strong>"Continuar en Cambio de Responsable de uso"</strong>.</p>
+  <div class="img-wrap">
+    <a href="/Imagenes/50.ficha_solicitud_tranferencia_cambio_reasignacion.png" class="glightbox" data-title="Formulario de Reasignación post-transferencia" data-gallery="transferencias">
+      <img src="/Imagenes/50.ficha_solicitud_tranferencia_cambio_reasignacion.png" alt="Formulario de Reasignación">
+    </a>
+    <span class="img-zoom-hint">🔍 Clic para ampliar</span>
+  </div>
+  <div class="success-note">
+    ✅ El cartel verde indicará <strong>"Proceso completado en DIAGUITA"</strong>. La transferencia quedó registrada con el nuevo responsable asignado.
+  </div>
+</div>
+</Layout>
