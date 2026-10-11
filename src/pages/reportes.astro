@@ -1,0 +1,44 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const sections = [
+  { href: "#consulta", label: "Consulta de documentos" }
+];
+---
+
+<Layout title="Reportes Patrimoniales" currentPath="/reportes" sections={sections}>
+  <h1>Reportes Patrimoniales</h1>
+  <p class="page-subtitle">Acceso rápido y directo a la documentación autorizada del sistema.</p>
+
+  <div class="intro-box">
+    <p>La sección de Reportes patrimoniales funciona como un atajo inteligente. Te permite localizar de forma exacta y rápida un documento que ya fue autorizado, abriendo directamente su ficha nativa sin tener que navegar manualmente por todas las páginas y listados de DIAGUITA.</p>
+  </div>
+
+  <div class="step-card" id="consulta">
+    <div class="step-header">
+      <div class="step-number">1</div>
+      <h4>Consulta de documentos patrimoniales</h4>
+    </div>
+    <p>Para buscar un documento, simplemente debes ingresar el <strong>Tipo de documento</strong>, el <strong>Año</strong> y el <strong>Número</strong> en la ventana emergente.</p>
+    <p>En el campo de Tipo de documento, puedes abrir el menú desplegable para seleccionar el trámite específico que necesitas consultar: <strong>Alta, Baja, Transferencia o Reasignación</strong>.</p>
+    
+    <div class="important">
+      <strong>¿Cómo funciona internamente?</strong><br>
+      Para las Altas, Bajas y Transferencias, la extensión pulsa automáticamente el estado <em>Autorizadas</em> del módulo correspondiente, busca el número y año exacto en el listado nativo y hace clic en ese registro para abrirlo. En el caso de las Reasignaciones, la búsqueda se realiza de forma automática dentro del Historial de reasignaciones propio de la extensión.
+    </div>
+
+    <div class="img-wrap">
+      <a href="/Imagenes/RP_1.1_formulario_completar.png" class="glightbox" data-gallery="reportes">
+        <img src="/Imagenes/RP_1.1_formulario_completar.png" alt="Formulario de consulta de documentos patrimoniales" />
+      </a>
+      <span class="img-zoom-hint">🔍 Clic para ampliar</span>
+    </div>
+    
+    <div class="img-wrap">
+      <a href="/Imagenes/RP_1.2_formulario_tipos_documento.png" class="glightbox" data-gallery="reportes">
+        <img src="/Imagenes/RP_1.2_formulario_tipos_documento.png" alt="Menú desplegable con los tipos de documentos disponibles" />
+      </a>
+      <span class="img-zoom-hint">🔍 Clic para ampliar</span>
+    </div>
+  </div>
+</Layout>

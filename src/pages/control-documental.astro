@@ -1,0 +1,81 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const sections = [
+  { href: "#seguimiento", label: "Seguimiento y Tablero" },
+  { href: "#sincronizacion", label: "Sincronización y Vistas" },
+  { href: "#registro", label: "Registrar documento" }
+];
+---
+
+<Layout title="Control Documental" currentPath="/control-documental" sections={sections}>
+  <h1>Control Documental</h1>
+  <p class="page-subtitle">Seguimiento de Altas, Bajas, Transferencias y Reasignaciones que deben regresar conformadas para archivo.</p>
+
+  <div class="intro-box">
+    <p>Esta sección funciona como un tablero integral para monitorear el estado físico de la documentación respaldatoria. Te permite saber rápidamente qué trámites están generados, cuáles están pendientes de devolución, cuáles ya fueron recibidos en patrimonio y cuáles están archivados.</p>
+  </div>
+
+  <div class="step-card" id="seguimiento">
+    <div class="step-header">
+      <div class="step-number">1</div>
+      <h4>Panel de Seguimiento y Filtros</h4>
+    </div>
+    <p>En la pantalla principal cuentas con dos pestañas principales: <strong>Documentos</strong> y <strong>Tablero por Unidad</strong>. Además, el sistema te muestra indicadores rápidos con la cantidad de trámites en cada estado (Generados, Pendientes de devolución, Recibidos, Archivados).</p>
+    <p>Puedes refinar tu búsqueda utilizando los filtros por tipo de trámite (Altas, Bajas, Transferencias, Reasignaciones), Estado, Año, Unidad principal, o utilizando la barra de búsqueda libre.</p>
+    
+    <div class="img-wrap">
+      <a href="/Imagenes/CD_1.1_camposInfo.png" class="glightbox" data-gallery="control">
+        <img src="/Imagenes/CD_1.1_camposInfo.png" alt="Panel principal de Control documental con indicadores y filtros" />
+      </a>
+      <span class="img-zoom-hint">🔍 Clic para ampliar</span>
+    </div>
+  </div>
+
+  <div class="step-card" id="sincronizacion">
+    <div class="step-header">
+      <div class="step-number">2</div>
+      <h4>Herramientas de sincronización</h4>
+    </div>
+    <p>En el sector derecho de la barra de filtros, dispones de botones fundamentales para mantener la coherencia de los datos con la base central:</p>
+    <ul>
+        <li><strong>Reconciliar con DIAGUITA:</strong> Recorre todas las páginas de Altas, Bajas y Transferencias autorizadas en DIAGUITA y consulta el Registro Central de Reasignaciones para incorporar los trámites finalizados faltantes, sin borrar marcas previas (como "recepciones" o "archivados").</li>
+        <li><strong>Actualizar vista:</strong> Vuelve a consultar la base central y refresca los contadores, filtros y el listado visible al instante. No entra a DIAGUITA ni incorpora documentos nuevos.</li>
+        <li><strong>Enviar pendientes:</strong> Reintenta enviar al servidor los cambios que hayan quedado guardados localmente a causa de una falla temporal de conexión.</li>
+    </ul>
+    
+    <div class="img-wrap">
+      <a href="/Imagenes/CD_1.2_formulario_tipos_documento_Diaguita.png" class="glightbox" data-gallery="control">
+        <img src="/Imagenes/CD_1.2_formulario_tipos_documento_Diaguita.png" alt="Información de Reconciliar con DIAGUITA" />
+      </a>
+      <span class="img-zoom-hint">🔍 Clic para ampliar</span>
+    </div>
+    <div class="img-wrap">
+      <a href="/Imagenes/CD_1.3_formulario_tipos_documento_Vistas.png" class="glightbox" data-gallery="control">
+        <img src="/Imagenes/CD_1.3_formulario_tipos_documento_Vistas.png" alt="Información de Actualizar vista" />
+      </a>
+      <span class="img-zoom-hint">🔍 Clic para ampliar</span>
+    </div>
+    <div class="img-wrap">
+      <a href="/Imagenes/CD_1.4_formulario_tipos_documento_Pendientes.png" class="glightbox" data-gallery="control">
+        <img src="/Imagenes/CD_1.4_formulario_tipos_documento_Pendientes.png" alt="Información de Enviar pendientes" />
+      </a>
+      <span class="img-zoom-hint">🔍 Clic para ampliar</span>
+    </div>
+  </div>
+
+  <div class="step-card" id="registro">
+    <div class="step-header">
+      <div class="step-number">3</div>
+      <h4>Registrar documento manual</h4>
+    </div>
+    <p>Si necesitas incorporar un trámite directamente, utiliza el botón <strong>Registrar documento</strong>. Se abrirá una ventana donde deberás cargar el Tipo de documento, el Número, la Fecha de generación, la Unidad principal y, opcionalmente, Observaciones.</p>
+    
+    <div class="img-wrap">
+      <a href="/Imagenes/CD_1.5_formulario_tipos_documento_RegistrarNuevo.png" class="glightbox" data-gallery="control">
+        <img src="/Imagenes/CD_1.5_formulario_tipos_documento_RegistrarNuevo.png" alt="Formulario para registrar un documento" />
+      </a>
+      <span class="img-zoom-hint">🔍 Clic para ampliar</span>
+    </div>
+  </div>
+</Layout>

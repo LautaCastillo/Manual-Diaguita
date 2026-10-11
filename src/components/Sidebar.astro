@@ -7,9 +7,17 @@ interface SectionLink {
 interface Props {
   currentPath: string;
   sections?: SectionLink[];
+  parentPath?: string;
 }
 
-const { currentPath, sections = [] } = Astro.props;
+const { currentPath, sections = [], parentPath = "" } = Astro.props;
+
+// Rutas de cada categoría padre
+const operacionesRoutes = ["/altas", "/bajas", "/transferencias", "/reasignaciones"];
+const bienesRoutes      = ["/bienes", "/filtro-busqueda"];
+
+const operacionesActive = operacionesRoutes.includes(currentPath);
+const bienesActive      = bienesRoutes.includes(currentPath);
 ---
 
 <aside class="sidebar">
@@ -22,83 +30,131 @@ const { currentPath, sections = [] } = Astro.props;
   <nav class="sidebar-nav" aria-label="Navegación principal">
     <div class="sidebar-nav-label">Navegación</div>
 
+    <!-- INICIO -->
     <a href="/" class={currentPath === "/" ? "active" : undefined}>
       <span class="nav-icon">🏠</span> Inicio
     </a>
 
-    <a href="/altas" class={currentPath === "/altas" ? "active" : undefined}>
-      <span class="nav-icon">➕</span> Altas
-    </a>
-    {
-      currentPath === "/altas" && sections.length > 0 && (
-        <div class="sidebar-sub">
-          {sections.map((s) => (
-            <a href={s.href}>{s.label}</a>
-          ))}
-        </div>
-      )
-    }
-
-    <a
-      href="/transferencias"
-      class={currentPath === "/transferencias" ? "active" : undefined}
+    <!-- ── OPERACIONES PATRIMONIALES ─────────────────────── -->
+    <button
+      class={`nav-group-btn ${operacionesActive ? "active" : ""}`}
+      aria-expanded={operacionesActive ? "true" : "false"}
+      data-target="operaciones-submenu"
     >
-      <span class="nav-icon">🔄</span> Transferencias
-    </a>
-    {
-      currentPath === "/transferencias" && sections.length > 0 && (
-        <div class="sidebar-sub">
-          {sections.map((s) => (
-            <a href={s.href}>{s.label}</a>
-          ))}
-        </div>
-      )
-    }
+      <span class="nav-icon">⚙️</span>
+      <span>Operaciones patrimoniales</span>
+      <span class="nav-arrow">▾</span>
+    </button>
 
-    <a href="/bajas" class={currentPath === "/bajas" ? "active" : undefined}>
-      <span class="nav-icon">➖</span> Bajas
-    </a>
-    {
-      currentPath === "/bajas" && sections.length > 0 && (
-        <div class="sidebar-sub">
-          {sections.map((s) => (
-            <a href={s.href}>{s.label}</a>
-          ))}
-        </div>
-      )
-    }
+    <div id="operaciones-submenu" class={`nav-submenu ${operacionesActive ? "open" : ""}`}>
 
-    <a
-      href="/reasignaciones"
-      class={currentPath === "/reasignaciones" ? "active" : undefined}
-    >
-      <span class="nav-icon">👤</span> Reasignaciones
-    </a>
-    {
-      currentPath === "/reasignaciones" && sections.length > 0 && (
+      <a href="/altas" class={currentPath === "/altas" ? "active" : undefined}>
+        <span class="nav-icon">➕</span> Altas
+      </a>
+      {currentPath === "/altas" && sections.length > 0 && (
         <div class="sidebar-sub">
-          {sections.map((s) => (
-            <a href={s.href}>{s.label}</a>
-          ))}
+          {sections.map((s) => <a href={s.href}>{s.label}</a>)}
         </div>
-      )
-    }
-    <a
-      href="/consultas"
-      class={currentPath === "/consultas" ? "active" : undefined}
-    >
-      <span class="nav-icon">🔍</span> Consultas
-    </a>
-    {
-      currentPath === "/consultas" && sections.length > 0 && (
+      )}
+
+      <a href="/bajas" class={currentPath === "/bajas" ? "active" : undefined}>
+        <span class="nav-icon">➖</span> Bajas
+      </a>
+      {currentPath === "/bajas" && sections.length > 0 && (
         <div class="sidebar-sub">
-          {sections.map((s) => (
-            <a href={s.href}>{s.label}</a>
-          ))}
+          {sections.map((s) => <a href={s.href}>{s.label}</a>)}
         </div>
-      )
-    }
+      )}
+
+      <a href="/transferencias" class={currentPath === "/transferencias" ? "active" : undefined}>
+        <span class="nav-icon">🔄</span> Transferencias
+      </a>
+      {currentPath === "/transferencias" && sections.length > 0 && (
+        <div class="sidebar-sub">
+          {sections.map((s) => <a href={s.href}>{s.label}</a>)}
+        </div>
+      )}
+
+      <a href="/reasignaciones" class={currentPath === "/reasignaciones" ? "active" : undefined}>
+        <span class="nav-icon">👤</span> Reasignaciones
+      </a>
+      {currentPath === "/reasignaciones" && sections.length > 0 && (
+        <div class="sidebar-sub">
+          {sections.map((s) => <a href={s.href}>{s.label}</a>)}
+        </div>
+      )}
+
+    </div>
+
+    <!-- ── BIENES PATRIMONIALES ───────────────────────────── -->
+    <button
+      class={`nav-group-btn ${bienesActive ? "active" : ""}`}
+      aria-expanded={bienesActive ? "true" : "false"}
+      data-target="bienes-submenu"
+    >
+      <span class="nav-icon">📦</span>
+      <span>Bienes patrimoniales</span>
+      <span class="nav-arrow">▾</span>
+    </button>
+
+    <div id="bienes-submenu" class={`nav-submenu ${bienesActive ? "open" : ""}`}>
+
+      <!-- Filtros de bienes / Panel  →  3er nivel con sus secciones -->
+      <a href="/filtro-busqueda" class={currentPath === "/filtro-busqueda" ? "active" : undefined}>
+        <span class="nav-icon">🔍</span> Filtro de búsqueda de bienes
+      </a>
+      {currentPath === "/filtro-busqueda" && sections.length > 0 && (
+        <div class="sidebar-sub">
+          {sections.map((s) => <a href={s.href}>{s.label}</a>)}
+        </div>
+      )}
+      
+      <a href="/bienes" class={currentPath === "/bienes" ? "active" : undefined}>
+        <span class="nav-icon">🔎</span> Filtros de bienes / Panel
+      </a>
+      {currentPath === "/bienes" && sections.length > 0 && (
+        <div class="sidebar-sub">
+          {sections.map((s) => <a href={s.href}>{s.label}</a>)}
+        </div>
+      )}
+
+    </div>
+
+      <!-- ── REPORTES PATRIMONIALES ────────────────────────────── -->
+      <a href="/reportes" class={currentPath === "/reportes" ? "active" : undefined}>
+        <span class="nav-icon">📊</span> Reportes patrimoniales
+      </a>
+      {currentPath === "/reportes" && sections.length > 0 && (
+        <div class="sidebar-sub">
+          {sections.map((s) => <a href={s.href}>{s.label}</a>)}
+        </div>
+      )}
+
+      <!-- ── CONTROL DOCUMENTAL A/B/T/R ────────────────────────── -->
+      <a href="/control-documental" class={currentPath === "/control-documental" ? "active" : undefined}>
+        <span class="nav-icon">📁</span> Control documental A/B/T/R
+      </a>
+      {currentPath === "/control-documental" && sections.length > 0 && (
+        <div class="sidebar-sub">
+          {sections.map((s) => <a href={s.href}>{s.label}</a>)}
+        </div>
+      )}
+
   </nav>
 
   <div class="sidebar-footer">Manual Oficial · SIU DIAGUITA</div>
 </aside>
+
+<script is:inline>
+  document.querySelectorAll('.nav-group-btn:not([disabled])').forEach(function(btn) {
+    btn.addEventListener('click', function() {
+      var targetId = btn.getAttribute('data-target');
+      var submenu  = document.getElementById(targetId);
+      if (!submenu) return;
+      var isOpen = submenu.classList.contains('open');
+      submenu.classList.toggle('open', !isOpen);
+      btn.setAttribute('aria-expanded', String(!isOpen));
+      btn.classList.toggle('active', !isOpen);
+    });
+  });
+</script>

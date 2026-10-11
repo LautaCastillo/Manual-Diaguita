@@ -754,3 +754,71 @@ li { margin-bottom: 6px; line-height: 1.6; }
     animation-duration: 0.01ms !important;
   }
 }
+
+
+/* ── NAV GRUPOS (categorías padre colapsables) ───────────── */
+.nav-group-btn {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+  background: none;
+  border: none;
+  border-left: 3px solid transparent;
+  cursor: pointer;
+  padding: 9px 20px;
+  color: var(--sidebar-text);
+  font-size: .875rem;
+  font-weight: 500;
+  text-align: left;
+  transition: all var(--transition);
+}
+
+.nav-group-btn:hover {
+  background: var(--sidebar-hover);
+  color: #f1f5f9;
+  border-left-color: var(--border-strong);
+}
+
+.nav-group-btn.active {
+  background: rgba(26, 86, 219, 0.15);
+  color: var(--sidebar-active);
+  border-left-color: var(--sidebar-active);
+  font-weight: 600;
+}
+
+.nav-group-btn.nav-group-disabled {
+  opacity: 0.38;
+  cursor: not-allowed;
+}
+
+.nav-group-btn .nav-arrow {
+  margin-left: auto;
+  font-size: .7rem;
+  flex-shrink: 0;
+  transition: transform var(--transition);
+}
+
+.nav-group-btn[aria-expanded="true"] .nav-arrow {
+  transform: rotate(180deg);
+}
+
+/* ── SUBMENÚ COLAPSABLE (nivel 2) ────────────────────────── */
+.nav-submenu {
+  display: none;
+  flex-direction: column;
+}
+
+.nav-submenu.open {
+  display: flex;
+}
+
+/* Links hijos dentro del submenú — indentados respecto al padre */
+.nav-submenu > a {
+  padding-left: 36px !important;
+}
+
+/* sidebar-sub dentro de un submenú → nivel 3 (anclas de sección) */
+.nav-submenu .sidebar-sub a {
+  padding-left: 52px;
+}
