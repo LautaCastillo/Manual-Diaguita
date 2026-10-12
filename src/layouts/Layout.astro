@@ -11,31 +11,31 @@ interface Props {
   title: string;
   currentPath?: string;
   sections?: SectionLink[];
+  fullWidth?: boolean;
 }
 
-const { title, currentPath = "/", sections = [] } = Astro.props;
+const { title, currentPath = "/", sections = [], fullWidth = false } = Astro.props;
 ---
 
 <!doctype html>
 <html lang="es">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta
-      name="description"
-      content="Manual de usuario del sistema institucional SIU Diaguita."
-    />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <meta name="description" content="Manual de usuario del sistema institucional SIU Diaguita — Dirección de Patrimonio UNSa." />
     <title>{title} — Manual SIU DIAGUITA</title>
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
     <link rel="stylesheet" href="/CSS/styles.css" />
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/glightbox/dist/css/glightbox.min.css"
-    />
+    <!-- GLightbox -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/glightbox/dist/css/glightbox.min.css" />
+    <!-- AOS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" />
+    <!-- Flowbite -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.css" />
   </head>
   <body>
     <div id="progress-bar"></div>
-    <div class="sidebar-overlay"></div>
+    <div class="sidebar-overlay" id="sidebarOverlay"></div>
 
     <div class="layout">
       <Sidebar currentPath={currentPath} sections={sections} />
@@ -49,12 +49,19 @@ const { title, currentPath = "/", sections = [] } = Astro.props;
       </div>
     </div>
 
-    <button id="scrollTopBtn" aria-label="Volver al inicio">↑</button>
+    <button id="scrollTopBtn" aria-label="Volver al inicio">
+      <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+        <polyline points="18 15 12 9 6 15"/>
+      </svg>
+    </button>
 
-    <script
-      is:inline
-      src="https://cdn.jsdelivr.net/npm/glightbox/dist/js/glightbox.min.js"
-    ></script>
+    <!-- Scripts -->
+    <script is:inline src="https://cdn.jsdelivr.net/npm/glightbox/dist/js/glightbox.min.js"></script>
+    <script is:inline src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.js"></script>
+    <script is:inline src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
     <script is:inline src="/JavaScript/javascript.js"></script>
+    <script is:inline>
+      AOS.init({ duration: 380, once: true, offset: 60, easing: 'ease-out-quad' });
+    </script>
   </body>
 </html>
