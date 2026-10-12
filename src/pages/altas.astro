@@ -12,45 +12,46 @@ const sections = [
 ---
 
 <Layout title="Altas" currentPath="/altas" sections={sections}>
-<h1>Altas de Bienes Patrimoniales</h1>
-<p class="page-subtitle">Incorporación de nuevos bienes al inventario institucional.</p>
+  <div class="page-content">
+    <h1>Altas de Bienes Patrimoniales</h1>
+    <p class="page-subtitle">Incorporación de nuevos bienes al inventario institucional.</p>
 
-<div class="intro-box">
-  <strong>Objetivo:</strong> Registrar correctamente la incorporación de uno o más bienes al patrimonio institucional, identificando su origen, características, valor, responsables y ubicación física, conservando el reporte que lo respalda.
-</div>
+    <div class="intro-box">
+      <strong>Objetivo:</strong> Registrar correctamente la incorporación de uno o más bienes al patrimonio institucional, identificando su origen, características, valor, responsables y ubicación física, conservando el reporte que lo respalda.
+    </div>
 
-<h2>Procedimiento de Alta</h2>
+    <h2>Procedimiento de Alta</h2>
 
-<!-- Stepper visual -->
-<div class="stepper" aria-label="Progreso del procedimiento">
-  <div class="stepper-item active">
-    <div class="stepper-num">1</div>
-    <span class="stepper-label">Carátula</span>
+  <!-- Stepper visual -->
+  <div class="stepper" aria-label="Progreso del procedimiento">
+    <div class="stepper-item active">
+      <div class="stepper-num">1</div>
+      <span class="stepper-label">Carátula</span>
+    </div>
+    <div class="stepper-item">
+      <div class="stepper-num">2</div>
+      <span class="stepper-label">Acto Admin.</span>
+    </div>
+    <div class="stepper-item">
+      <div class="stepper-num">3</div>
+      <span class="stepper-label">Bienes</span>
+    </div>
+    <div class="stepper-item">
+      <div class="stepper-num">4</div>
+      <span class="stepper-label">Catálogo</span>
+    </div>
+    <div class="stepper-item">
+      <div class="stepper-num">5</div>
+      <span class="stepper-label">Autorizar</span>
+    </div>
+    <div class="stepper-item">
+      <div class="stepper-num">6</div>
+      <span class="stepper-label">Reporte</span>
+    </div>
   </div>
-  <div class="stepper-item">
-    <div class="stepper-num">2</div>
-    <span class="stepper-label">Acto Admin.</span>
-  </div>
-  <div class="stepper-item">
-    <div class="stepper-num">3</div>
-    <span class="stepper-label">Bienes</span>
-  </div>
-  <div class="stepper-item">
-    <div class="stepper-num">4</div>
-    <span class="stepper-label">Catálogo</span>
-  </div>
-  <div class="stepper-item">
-    <div class="stepper-num">5</div>
-    <span class="stepper-label">Autorizar</span>
-  </div>
-  <div class="stepper-item">
-    <div class="stepper-num">6</div>
-    <span class="stepper-label">Reporte</span>
-  </div>
-</div>
 
 <!-- Paso 1 -->
-<div class="step-card" id="paso-1">
+<div class="step-card" data-aos="fade-up" data-aos-delay="0" id="paso-1">
   <div class="step-header">
     <div class="step-number">1</div>
     <h4>Datos del Alta (Carátula)</h4>
@@ -72,7 +73,7 @@ const sections = [
 </div>
 
 <!-- Paso 2 -->
-<div class="step-card" id="paso-2">
+<div class="step-card" data-aos="fade-up" data-aos-delay="100" id="paso-2">
   <div class="step-header">
     <div class="step-number">2</div>
     <h4>Acto Administrativo</h4>
@@ -88,7 +89,7 @@ const sections = [
 </div>
 
 <!-- Paso 3 -->
-<div class="step-card" id="paso-3">
+<div class="step-card" data-aos="fade-up" data-aos-delay="200" id="paso-3">
   <div class="step-header">
     <div class="step-number">3</div>
     <h4>Carga de Bienes Patrimoniales</h4>
@@ -119,7 +120,7 @@ const sections = [
 </div>
 
 <!-- Paso 4 -->
-<div class="step-card" id="paso-4">
+<div class="step-card" data-aos="fade-up" data-aos-delay="300" id="paso-4">
   <div class="step-header">
     <div class="step-number">4</div>
     <h4>Asociar a Catálogo</h4>
@@ -146,7 +147,7 @@ const sections = [
 </div>
 
 <!-- Paso 5 -->
-<div class="step-card" id="paso-5">
+<div class="step-card" data-aos="fade-up" data-aos-delay="400" id="paso-5">
   <div class="step-header">
     <div class="step-number">5</div>
     <h4>Revisión, Finalizar Carga y Autorizar</h4>
@@ -169,7 +170,7 @@ const sections = [
 </div>
 
 <!-- Paso 6 -->
-<div class="step-card" id="paso-6">
+<div class="step-card" data-aos="fade-up" data-aos-delay="500" id="paso-6">
   <div class="step-header">
     <div class="step-number">6</div>
     <h4>Emisión de Reportes</h4>
@@ -200,5 +201,6 @@ const sections = [
     </a>
     <span class="img-zoom-hint">🔍 Clic para ampliar</span>
   </div>
+</div>
 </div>
 </Layout>

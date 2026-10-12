@@ -11,6 +11,7 @@ const sections = [
 ---
 
 <Layout title="Bajas" currentPath="/bajas" sections={sections}>
+<div class="page-content">
 <h1>Bajas de Bienes Patrimoniales</h1>
 <p class="page-subtitle">Retiro formal de bienes del inventario patrimonial activo.</p>
 
@@ -47,7 +48,7 @@ const sections = [
   </div>
 </div>
 
-<div class="step-card" id="paso-1">
+<div class="step-card" data-aos="fade-up" data-aos-delay="0" id="paso-1">
   <div class="step-header">
     <div class="step-number">1</div>
     <h4>Datos de la Baja</h4>
@@ -61,7 +62,7 @@ const sections = [
   </div>
 </div>
 
-<div class="step-card" id="paso-2">
+<div class="step-card" data-aos="fade-up" data-aos-delay="100" id="paso-2">
   <div class="step-header">
     <div class="step-number">2</div>
     <h4>Selección de los Bienes</h4>
@@ -81,7 +82,7 @@ const sections = [
   </div>
 </div>
 
-<div class="step-card" id="paso-3">
+<div class="step-card" data-aos="fade-up" data-aos-delay="200" id="paso-3">
   <div class="step-header">
     <div class="step-number">3</div>
     <h4>Finalizar Carga</h4>
@@ -95,7 +96,7 @@ const sections = [
   </div>
 </div>
 
-<div class="step-card" id="paso-4">
+<div class="step-card" data-aos="fade-up" data-aos-delay="300" id="paso-4">
   <div class="step-header">
     <div class="step-number">4</div>
     <h4>Autorización de la Baja</h4>
@@ -110,7 +111,7 @@ const sections = [
   <p>Al confirmar, el estado se actualiza y el bien ya no figura como activo en el inventario.</p>
 </div>
 
-<div class="step-card" id="paso-5">
+<div class="step-card" data-aos="fade-up" data-aos-delay="400" id="paso-5">
   <div class="step-header">
     <div class="step-number">5</div>
     <h4>Emisión del Reporte Institucional</h4>
@@ -125,5 +126,6 @@ const sections = [
   <div class="success-note">
     ✅ <strong>Baja completada:</strong> El bien ya no figura como activo en el inventario patrimonial. El reporte PDF queda como constancia oficial del trámite.
   </div>
+</div>
 </div>
 </Layout>

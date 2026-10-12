@@ -7,8 +7,9 @@ patrimonio universitario). El manual documenta cómo usar el
 sistema nativo junto con una extensión de navegador desarrollada
 específicamente para mejorar su interfaz.
 
-El sistema SIU Diaguita vive en: http://diaguitadev.unsa.edu.ar/diaguita/
-El manual publicado está en: https://manualsiu-prueba.netlify.app/
+El sistema SIU Diaguita-Desarrollo vive en: http://diaguitadev.unsa.edu.ar/diaguita/
+El sistema SIU Diaguita-Produccion vive en: http://diaguita.unsa.edu.ar/diaguita/
+El manual publicado está en: https://manualsiu-diaguita.netlify.app/
 
 ## Stack
 - Framework: Astro (generador de sitio estático)
